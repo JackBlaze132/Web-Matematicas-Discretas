@@ -1,3 +1,7 @@
+.navbar{
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .banner{
     width: 100%;
     height: 350px;
@@ -16,4 +20,49 @@
 
 .image-background{
     background:lightgray;
+}
+
+.button-icon{
+    margin-left: 0.5em;
+}
+.card{
+    margin-top: 25px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px;
+}
+
+.btn-primary{
+    background:var(--bs-purple);
+    border-color: #ffffff;
+}
+
+.btn-primary:hover{
+    background: var(--bs-indigo);
+    box-shadow: #0a53be;
+    border-color: var(--bs-indigo);
+}
+.btn-primary:active{
+    background: var(--bs-indigo)!important;
+    border-color: var(--bs-indigo);
+    box-shadow: #6610f2 0px 0px 9px;
+}
+
+lottie-player{
+    border-top-left-radius: var(--bs-card-inner-border-radius);
+    border-top-right-radius: var(--bs-card-inner-border-radius);
+}
+
+.blink{
+    transform: translate();
+}
+.blink-anim{
+    animation:blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0%{opacity: 1}
+    70%{opacity: 1}
+    71%{opacity: 0}
+    100%{opacity: 0}
+
+
 }
