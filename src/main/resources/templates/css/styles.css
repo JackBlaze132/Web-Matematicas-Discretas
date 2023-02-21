@@ -51,6 +51,7 @@ lottie-player{
     border-top-right-radius: var(--bs-card-inner-border-radius);
 }
 
+
 .blink{
     transform: translate();
 }
@@ -66,3 +67,4 @@ lottie-player{
 
 
 }
+

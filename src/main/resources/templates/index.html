@@ -2,8 +2,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/008b26dd3d.css" crossorigin="anonymous">
     <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/008b26dd3d.js" crossorigin="anonymous" type="text/javascript"></script>
@@ -27,14 +27,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                     </li>
-                        <a class="nav-link" href="#">Equipo</a>
+                        <a class="nav-link" href="#equipo">Equipo</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Proyectos</a>
                     <ul class="dropdown-menu dropdown-menu-dark bg-black">
-                        <li><a class="dropdown-item" href="#"> &gt; Nodes</a></li>
-                        <li><a class="dropdown-item" href="#"> &gt; TreeS</a></li>
-                        <li><a class="dropdown-item" href="#"> &gt; Graph-R</a></li>
+                        <li><a class="dropdown-item" href="#nodes"> &gt; Nodes</a></li>
+                        <li><a class="dropdown-item" href="#trees"> &gt; TreeS</a></li>
+                        <li><a class="dropdown-item" href="#graphr"> &gt; Graph-R</a></li>
                     </ul>
                     </li>
                 </ul>
@@ -60,27 +60,27 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container pt-5 pb-5">
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 50px">
-                <h2 style="font-weight: bolder">&lt;/PROYECTOS&gt;</h2>
+            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center">
+                <h2 id="proyectos"><strong>&lt;/PROYECTOS&gt;</strong></h2>
             </div>
         </div>
-        <div class="row" style="margin-top: 25px">
+        <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card" style="padding: 2rem;" >
+                <div id="nodes" class="card" style="padding: 2rem;" >
                     <lottie-player
                             autoplay loop mode="normal" src="https://lottie.host/751414f0-6980-45c2-bfe6-f2bccf237ef5/f6fKA2YLfE.json" style="width: 97%; background: black">
                     </lottie-player>
                     <div class="card-body">
-                        <h5 class="card-title">Nodos</h5>
+                        <h5 class="card-title">Nodes</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-primary">Probar ahora<i class="fa-solid fa-circle-chevron-right button-icon"></i></a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card" style="padding: 2rem;">
+                <div id="tress" class="card" style="padding: 2rem;">
                     <div class="image-background">
                         <img src="img/question-box.svg" class="card-img-top" alt="...">
                     </div>
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card" style="padding: 2rem;">
+                <div id="graphr" class="card" style="padding: 2rem;">
                     <div class="image-background">
                         <img  src="img/question-box.svg" class="card-img-top" alt="...">
                     </div>
@@ -105,10 +105,22 @@
             </div>
         </div>
     </div>
+    <div class="Container pt-5 pb-5" style="background: lightgray;">
+        <div class="row" style="text-align: center">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h2 id="equipo"><strong>&lt;/EQUIPO&gt;</strong></h2>
+            </div>
+
+        </div>
+    </div>
 
 <div style="display: flex; align-items: center; justify-content: center;">
     <h1>hola putas</h1>
 </div>
 
+
 </body>
+
+<!-- Scripts de bootstrap-->
+
 </html>
