@@ -32,7 +32,7 @@ public class ControllerEstudiante {
     //Nuevos metodos para aplicar al FrontEnd
     //----------------------------------------------------------------------------------------------------------------------------------------
 
-    @PostMapping(path = "insertarEstudiante")
+    @PostMapping(path = "crearEstudiante")
     public RedirectView insertarEstudiante(@ModelAttribute EntityEstudiante estudiante, Model modelo){
 
         estudiante.setEntityListaNodos(serviceListaNodos.buscarListaNodosPorId(Long.parseLong("2")));
