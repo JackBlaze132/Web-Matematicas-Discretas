@@ -25,6 +25,7 @@ public class Frontend {
 
         List<EntityEstudiante> listaEstudiantes = serviceEstudiante.listarEstudiantes();
         modelo.addAttribute("estudiantes", listaEstudiantes);
+        modelo.addAttribute("numeroNodos", listaEstudiantes.size());
 
         return "nodes";
     }

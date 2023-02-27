@@ -2,7 +2,11 @@
 $(".round").draggable();
 
 var LineController = connect();
-const nodes = [9,9,9,9];
+let numNodos = parseInt(document.getElementById("numNodos").textContent);
+let nodes = [];
+for (let i = 0; i < numNodos; i++) {
+    nodes.push(9)
+}
 let contador = 0;
 
 
