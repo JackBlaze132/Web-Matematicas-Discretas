@@ -1,0 +1,49 @@
+body
+{
+    padding:0px;
+    margin:0px;
+    height: 99vh;
+}
+
+.card{
+
+    /* height: 80px;/*
+   /*width : 80px;*/
+
+
+    font-family: Segoe UI;
+    position:absolute;
+
+    transition: 100ms;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+#cav1{
+    background: url('../img/grid.png');
+    width: 100%;
+}
+
+.icon{
+    width: 18px;
+    height: 18px;
+}
+
+.btn {
+    text-align: left;
+    width: 2.7em;
+    height: 2.4em;
+    overflow: hidden;
+    transition: 100ms;
+}
+.btn:hover{
+    width: 8em;
+}
+
+.footer{
+    position: absolute;
+    top:800px;
+    width: 100%;
+}

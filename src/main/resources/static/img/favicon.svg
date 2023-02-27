@@ -1,35 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: url(#Degradado_sin_nombre_62);
-      }
-
-      .cls-2 {
-        fill: #fff;
-        stroke: #fff;
-        stroke-miterlimit: 10;
-      }
-    </style>
-    <radialGradient id="Degradado_sin_nombre_62" data-name="Degradado sin nombre 62" cx="61.76" cy="61.33" fx="61.76" fy="61.33" r="70.62" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#561466"/>
-      <stop offset=".04" stop-color="#481466"/>
-      <stop offset=".11" stop-color="#321466"/>
-      <stop offset=".15" stop-color="#2a1466"/>
-      <stop offset=".16" stop-color="#291463"/>
-      <stop offset=".28" stop-color="#1f1444"/>
-      <stop offset=".41" stop-color="#18142d"/>
-      <stop offset=".55" stop-color="#13141c"/>
-      <stop offset=".69" stop-color="#0f1412"/>
-      <stop offset=".88" stop-color="#0f150f"/>
-      <stop offset="1" stop-color="#1a1c15"/>
-    </radialGradient>
-  </defs>
-  <rect class="cls-1" x="0" y="0" width="64" height="64" rx="19.35" ry="19.35"/>
-  <g>
-    <path class="cls-2" d="m18.18,41.07l-13.18-6.57v-1.03l13.18-7.29v2.42l-9.8,5.31v.06l9.8,4.72v2.39Z"/>
-    <path class="cls-2" d="m24.29,42.91v-21.82h6.18c3.85,0,6.74.88,8.66,2.65s2.88,4.43,2.88,7.98c0,3.37-1.07,6.07-3.2,8.12-2.14,2.04-4.99,3.07-8.56,3.07h-5.96Zm2.77-19.35v16.89h3.18c2.79,0,4.96-.75,6.52-2.26s2.34-3.64,2.34-6.4-.73-4.78-2.18-6.16-3.63-2.07-6.53-2.07h-3.32Z"/>
-    <path class="cls-2" d="m59,34.48l-13.18,6.57v-2.4l9.81-4.67v-.09l-9.81-5.31v-2.42l13.18,7.29v1.03Z"/>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:#FFFFFF;stroke:#FFFFFF;stroke-miterlimit:10;}
+</style>
+<radialGradient id="SVGID_1_" cx="61.76" cy="2.67" r="70.62" gradientTransform="matrix(1 0 0 -1 0 64)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#561466"/>
+	<stop  offset="4.000000e-02" style="stop-color:#481466"/>
+	<stop  offset="0.11" style="stop-color:#321466"/>
+	<stop  offset="0.15" style="stop-color:#2A1466"/>
+	<stop  offset="0.16" style="stop-color:#291463"/>
+	<stop  offset="0.28" style="stop-color:#1F1444"/>
+	<stop  offset="0.41" style="stop-color:#18142D"/>
+	<stop  offset="0.55" style="stop-color:#13141C"/>
+	<stop  offset="0.69" style="stop-color:#0F1412"/>
+	<stop  offset="0.88" style="stop-color:#0F150F"/>
+	<stop  offset="1" style="stop-color:#1A1C15"/>
+</radialGradient>
+<path class="st0" d="M19.4,0h25.3C55.3,0,64,8.7,64,19.4v25.3C64,55.3,55.3,64,44.7,64H19.4C8.7,64,0,55.3,0,44.7V19.4
+	C0,8.7,8.7,0,19.4,0z"/>
+<g>
+	<path class="st1" d="M18.2,41.1L5,34.5v-1l13.2-7.3v2.4l-9.8,5.3V34l9.8,4.7V41.1L18.2,41.1z"/>
+	<path class="st1" d="M24.3,42.9V21.1h6.2c3.8,0,6.7,0.9,8.7,2.6s2.9,4.4,2.9,8c0,3.4-1.1,6.1-3.2,8.1c-2.1,2-5,3.1-8.6,3.1H24.3z
+		 M27.1,23.6v16.9h3.2c2.8,0,5-0.8,6.5-2.3s2.3-3.6,2.3-6.4s-0.7-4.8-2.2-6.2s-3.6-2.1-6.5-2.1H27.1L27.1,23.6z"/>
+	<path class="st1" d="M59,34.5L45.8,41v-2.4l9.8-4.7v-0.1l-9.8-5.3v-2.4L59,33.4C59,33.4,59,34.5,59,34.5z"/>
+</g>
 </svg>
