@@ -9,10 +9,6 @@ for (let i = 0; i < numNodos; i++) {
 }
 let contador = 0;
 
-
-console.log(nodes)
-
-
 for(let index in nodes){
     LineController.drawLine({
         left_node: String('c' + (index++)),
