@@ -22,9 +22,11 @@ public class EntityEstudiante {
     @Column(name = "numeroNodo")
     private Long numeroNodo;
 
-    @JoinColumn(name = "id_listanodos", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private EntityListaNodos entityListaNodos;
+    @OneToOne
+    private EntityEstudiante siguiente;
+
+    @OneToOne
+    private EntityEstudiante anterior;
 
 
 }

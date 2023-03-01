@@ -2,7 +2,6 @@ package com.co.MD.PPCTM.Controller;
 
 import com.co.MD.PPCTM.Domain.EntityEstudiante;
 import com.co.MD.PPCTM.Services.ServiceEstudiante;
-import com.co.MD.PPCTM.Services.ServiceListaNodos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,8 +17,6 @@ public class ControllerEstudiante {
     @Autowired
     ServiceEstudiante serviceEstudiante;
 
-    @Autowired
-    ServiceListaNodos serviceListaNodos;
 
     @PostMapping(path = "/insertarEstudianteJpa/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Boolean> insertarEstudianteJpa(@RequestBody EntityEstudiante estudiante, @PathVariable Long id){
@@ -35,7 +32,6 @@ public class ControllerEstudiante {
     @PostMapping(path = "crearEstudiante")
     public RedirectView insertarEstudiante(@ModelAttribute EntityEstudiante estudiante, Model modelo){
 
-        estudiante.setEntityListaNodos(serviceListaNodos.buscarListaNodosPorId(Long.parseLong("2")));
         Boolean agregado = serviceEstudiante.insertarEstudianteJpa(estudiante);
 
         modelo.addAttribute(estudiante);
