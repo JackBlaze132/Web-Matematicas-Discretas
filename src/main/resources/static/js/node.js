@@ -15,7 +15,7 @@ for(let index in nodes){
         right_node: String('c' + (index)),
         col: "#6610f2",
         width: 2,
-        gtype: "D"
+        gtype: "<->"
     })
 
     $( '#'+ 'c' + String(index) ).draggable({

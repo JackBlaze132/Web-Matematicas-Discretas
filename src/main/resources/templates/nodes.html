@@ -29,7 +29,7 @@
     </div>
 
     <div class="nodes-canvas">
-        <div th:each="itemEstudiante : ${estudiantes}" >
+       <div th:each="itemEstudiante : ${estudiantes}" >
             <div class="card col-2 col-lg-1" th:id=" 'c' + ${itemEstudiante.numeroNodo}" th:style="'left:' + (300 * ${itemEstudiante.numeroNodo}) + 'px; top:30%'">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" scope="row" th:text="${itemEstudiante.nombre}"></li>
