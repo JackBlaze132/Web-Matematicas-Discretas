@@ -136,11 +136,29 @@ public class ServiceEstudiante {
                 actual.setNumeroNodo(estudiante.getNumeroNodo() + 1L);
             }
         }
+        else{
+            EntityEstudiante actual = repositoryEstudiante.findByNumeroNodo(1L);
+            int contador = 1;
+            int numeroALllegar = estudiante.getNumeroNodo().intValue();
+
+            while (contador != numeroALllegar){
+                contador++;
+                actual = actual.getSiguiente();
+            }
+
+            actual.getAnterior().setSiguiente(estudiante);
+            estudiante.setAnterior(actual.getAnterior());
+            estudiante.setSiguiente(actual);
+            actual.setAnterior(estudiante);
+
+            while(actual != null){
+                actual.setNumeroNodo(actual.getNumeroNodo() + 1L);
+                actual = actual.getSiguiente();
+            }
+        }
         repositoryEstudiante.save(estudiante);
         return Boolean.TRUE;
     }
-
-
 
 
     public List<EntityEstudiante> listarEstudiantes(){
