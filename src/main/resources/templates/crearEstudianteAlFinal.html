@@ -18,7 +18,6 @@
         <form class="d-flex flex-column gap-3 align-items-center" th:action="@{/estudiante/crearEstudiante}" th:method="post" th:object="${nEstudiante}">
             <input th:field="*{nombre}" class="form-control" type="text" placeholder="Nombre" autocomplete="off" required/>
             <input th:field="*{codigo}" class="form-control" type="number" placeholder="Codigo" autocomplete="off" required/>
-            <input th:field="*{numeroNodo}" class="form-control" type="number" placeholder="#Nodo" autocomplete="off" required/>
             <button class="btn btn-primary" type="submit">Agregar<i class="bi bi-person-fill-add button-icon"></i></button>
         </form>
 
