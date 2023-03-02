@@ -235,16 +235,18 @@ this.kruskalize =function (_cl = "rgb(0,0,0,0.08)")  {
 			 var dx = Number(ele2_x) - Number(ele1_x);
 			 let dy = ele2_y - ele1_y;
 			 let angle = Math.atan2(dy, dx);
+			 let angle_ = Math.atan2((-1 * dy), (-1 * dx));
 			 _ctx.moveTo( ele1_x,  ele1_y);
+			 _ctx.lineTo(ele1_x - headlen * Math.cos(angle_ - Math.PI / 6), ele1_y - headlen * Math.sin(angle_ - Math.PI / 6));
+			 _ctx.moveTo(ele1_x, ele1_y);
+			 _ctx.lineTo(ele1_x - headlen * Math.cos(angle_ + Math.PI / 6), ele1_y - headlen * Math.sin(angle_ + Math.PI / 6));
+			 _ctx.moveTo(ele1_x, ele1_y);
 			 _ctx.lineTo(ele2_x, ele2_y);
 			 _ctx.lineTo(ele2_x - headlen * Math.cos(angle - Math.PI / 6),  ele2_y - headlen * Math.sin(angle - Math.PI / 6));
 			 _ctx.moveTo(ele2_x,  ele2_y);
 			 _ctx.lineTo(ele2_x - headlen * Math.cos(angle + Math.PI / 6),  ele2_y - headlen * Math.sin(angle + Math.PI / 6));
 			 _ctx.moveTo(ele2_x, ele2_y)
-			 _ctx.moveTo(ele1_x, ele1_y)
-			 _ctx.lineTo((ele1_x - headlen / Math.cos(angle - Math.PI / 6)*-1),  ele1_y - headlen * Math.sin(angle - Math.PI / 6));
-			 _ctx.moveTo(ele1_x, ele1_y);
-			 _ctx.lineTo((ele1_x - headlen / Math.cos(angle + Math.PI / 6)*-1),  ele1_y - headlen * Math.sin(angle + Math.PI / 6));
+
 		 }
 					
 
