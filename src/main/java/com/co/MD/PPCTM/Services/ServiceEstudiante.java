@@ -115,26 +115,24 @@ public class ServiceEstudiante {
             insertarEstudianteAlFinal(estudiante);
 
         }
+        else if(aIngresar == 1){
+            insertarEstudianteAlInicio(estudiante);
+        }
         else if(aIngresar == numEstudiantes){
 
-            if(numEstudiantes == 1){
-                insertarEstudianteAlInicio(estudiante);
-            }
-            else{
-                EntityEstudiante actual = repositoryEstudiante.findByNumeroNodo(1L);
-                while(actual != null){
-                    if(actual.getSiguiente() == null){
-                        break;
-                    }
-                    actual = actual.getSiguiente();
+            EntityEstudiante actual = repositoryEstudiante.findByNumeroNodo(1L);
+            while(actual != null){
+                if(actual.getSiguiente() == null){
+                    break;
                 }
-
-                actual.getAnterior().setSiguiente(estudiante);
-                estudiante.setAnterior(actual.getAnterior());
-                estudiante.setSiguiente(actual);
-                actual.setAnterior(estudiante);
-                actual.setNumeroNodo(estudiante.getNumeroNodo() + 1L);
+                actual = actual.getSiguiente();
             }
+            actual.getAnterior().setSiguiente(estudiante);
+            estudiante.setAnterior(actual.getAnterior());
+            estudiante.setSiguiente(actual);
+            actual.setAnterior(estudiante);
+            actual.setNumeroNodo(estudiante.getNumeroNodo() + 1L);
+
         }
         else{
             EntityEstudiante actual = repositoryEstudiante.findByNumeroNodo(1L);
