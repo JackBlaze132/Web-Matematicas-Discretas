@@ -21,9 +21,15 @@
     <div style="z-index:1; position:absolute;width: 100%">
         <div id="common-navbar"></div>
         <div>
-           <form th:action="@{/crearEstudiante}" th:method="get">
+           <form th:action="@{/crearEstudianteAlFinal}" th:method="get">
                 <button class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-circle-plus icon"></i><span class="btn-txt"> > Agregar</span></button>
            </form>
+            <form th:action="@{/crearEstudianteAlInicio}" th:method="get">
+                <button class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-circle-plus icon"></i><span class="btn-txt"> > A.inicio</span></button>
+            </form>
+            <form th:action="@{/crearEstudianteXPosicion}" th:method="get">
+                <button class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-circle-plus icon"></i><span class="btn-txt"> > A.X</span></button>
+            </form>
             <button class=" m-2 rounded-2 mx-4 btn btn-dark" onclick="location.href='/'"><i class="fa-solid fa-house icon"></i> > Inicio</button>
         </div>
     </div>

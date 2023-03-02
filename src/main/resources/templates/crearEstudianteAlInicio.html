@@ -15,7 +15,7 @@
     <div class="d-flex flex-column align-items-center px-4 py-5 my-5 text-center">
 
         <h1>Crear estudiante</h1>
-        <form class="d-flex flex-column gap-3 align-items-center" th:action="@{/estudiante/crearEstudianteAlFinal}" th:method="post" th:object="${nEstudiante}">
+        <form class="d-flex flex-column gap-3 align-items-center" th:action="@{/estudiante/crearEstudianteAlInicio}" th:method="post" th:object="${nEstudiante}">
             <input th:field="*{nombre}" class="form-control" type="text" placeholder="Nombre" autocomplete="off" required/>
             <input th:field="*{codigo}" class="form-control" type="number" placeholder="Codigo" autocomplete="off" required/>
             <button class="btn btn-primary" type="submit">Agregar<i class="bi bi-person-fill-add button-icon"></i></button>

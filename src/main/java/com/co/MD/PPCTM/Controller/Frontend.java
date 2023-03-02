@@ -35,11 +35,27 @@ public class Frontend {
         return "error";
     }
 
-    @GetMapping (path = "/crearEstudiante")
-    public String crearEstudiante(Model modelo){
+    @GetMapping (path = "/crearEstudianteAlFinal")
+    public String crearEstudianteAlFinal(Model modelo){
 
         modelo.addAttribute("nEstudiante", new EntityEstudiante());
 
-        return "crearEstudiante";
+        return "crearEstudianteAlFinal";
+    }
+
+    @GetMapping (path = "/crearEstudianteAlInicio")
+    public String crearEstudianteAlInicio(Model modelo){
+
+        modelo.addAttribute("nEstudiante", new EntityEstudiante());
+
+        return "crearEstudianteAlInicio";
+    }
+
+    @GetMapping (path = "/crearEstudianteXPosicion")
+    public String crearEstudianteXPosicion(Model modelo){
+
+        modelo.addAttribute("nEstudiante", new EntityEstudiante());
+
+        return "crearEstudianteXPosicion";
     }
 }
