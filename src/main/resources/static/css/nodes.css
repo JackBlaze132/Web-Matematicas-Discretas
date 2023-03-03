@@ -12,7 +12,7 @@ body
 
 
     font-family: Segoe UI;
-    position:absolute;
+    position:relative;
 
     transition: 100ms;
     vertical-align: middle;
@@ -26,8 +26,11 @@ body
 }
 
 #cav1{
-    background: url('../img/grid.png');
+    background: url('../img/dots.png');
     width: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
 }
 
 .icon{
@@ -48,6 +51,14 @@ body
 
 .footer{
     position: absolute;
-    top:800px;
+    top:930px;
     width: 100%;
+}
+
+.nodes-canvas{
+    position: relative;
+    overflow: auto;
+    padding-top:68px;
+    height: 930px;
+
 }

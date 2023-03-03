@@ -1,5 +1,5 @@
 
-$(".round").draggable();
+$(".card").draggable();
 
 var LineController = connect();
 let numNodos = parseInt(document.getElementById("numNodos").textContent);

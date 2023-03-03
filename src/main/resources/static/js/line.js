@@ -21,7 +21,7 @@ Copyright 2020 Anoop Singh, Graphical Structure
 
 
 var _lines = new Array(); //This array will store all lines (option)
-var _canvas = document.createElement('canvas');
+var _canvas = document.getElementById('cav1');
 var _ctx;
 var ele1 , ele2, f=0;
 var lineindex =0;
@@ -58,10 +58,10 @@ var _error =false;
 
 		//Initialize Canvas object
 
-		_canvas.id = "cav1";
+		//_canvas.id = "cav1";
 		_canvas.width = document.body.clientWidth;
-		_canvas.height = document.body.clientHeight; 
-		document.body.appendChild(_canvas)
+		_canvas.height = document.body.clientHeight;
+		//document.body.appendChild(_canvas)
 
 
 		_ctx = _canvas.getContext('2d');
