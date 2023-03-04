@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServiceEstudiante {
@@ -215,13 +216,31 @@ public class ServiceEstudiante {
             }
         }
 
-        if( (numEstudiantes >= 1) && (posicionAEliminar == 1) ){
-            System.out.println(repositoryEstudiante.findByNumeroNodo(1L).getNombre());
+        if( (numEstudiantes == 1) && (posicionAEliminar == 1) ){
             repositoryEstudiante.deleteById(buscado.getId());
+            return Boolean.TRUE;
+        }
+        else if(posicionAEliminar == 1){
+            buscado = repositoryEstudiante.findByNumeroNodo(1L);
+            buscado.getSiguiente().setAnterior(null);
+            Long id = buscado.getId();
+            EntityEstudiante aux = buscado.getSiguiente();
+            while(aux != null){
+
+                aux.setNumeroNodo(aux.getNumeroNodo() - 1L);
+                if(aux.getSiguiente() == null){
+                    break;
+                }
+                aux = aux.getSiguiente();
+            }
+
+            repositoryEstudiante.deleteById(id);
             return Boolean.TRUE;
         }
         else if( (condicion) && (numCaso == 0) ){
             buscado.getAnterior().setSiguiente(null);
+            buscado.setAnterior(null);
+            buscado.setSiguiente(null);
             repositoryEstudiante.deleteById(buscado.getId());
             return Boolean.TRUE;
         }
@@ -229,13 +248,15 @@ public class ServiceEstudiante {
 
             buscado.getAnterior().setSiguiente(buscado.getSiguiente());
             buscado.getSiguiente().setAnterior(buscado.getAnterior());
-
+            EntityEstudiante aux = repositoryEstudiante.findByNumeroNodo(buscado.getNumeroNodo());
             while(buscado.getSiguiente() != null){
 
                 buscado = buscado.getSiguiente();
-                buscado.setNumeroNodo(buscado.getNumeroNodo() - 1);
+                buscado.setNumeroNodo(buscado.getNumeroNodo() - 1L);
             }
-            repositoryEstudiante.deleteById(buscado.getId());
+            aux.setAnterior(null);
+            aux.setSiguiente(null);
+            repositoryEstudiante.deleteById(aux.getId());
             return Boolean.TRUE;
         }
         return Boolean.FALSE;
