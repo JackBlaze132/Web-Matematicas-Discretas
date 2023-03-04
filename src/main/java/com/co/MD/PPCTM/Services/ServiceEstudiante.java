@@ -5,6 +5,7 @@ import com.co.MD.PPCTM.Repository.RepositoryEstudiante;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -156,6 +157,88 @@ public class ServiceEstudiante {
         }
         repositoryEstudiante.save(estudiante);
         return Boolean.TRUE;
+    }
+
+    public HashMap<Boolean, Integer> verificarHayUnEstudianteXPosicion(EntityEstudiante primerEstudiante, Long posicionAEliminar) throws Exception{
+
+        HashMap<Boolean, Integer> devolver = new HashMap<>();
+        int contador = 1;
+        int posicion = posicionAEliminar.intValue();
+        int auxiliar = 0;
+
+        EntityEstudiante temp = primerEstudiante;
+
+        while(temp.getSiguiente() != null){
+
+            contador++;
+            temp = temp.getSiguiente();
+            if(contador == posicion){
+                auxiliar = 1;
+                break;
+            }
+        }
+
+        //Caso FALSE/0 - No se encontró a un estudiante en la posición que el usuario desea eliminar
+        if(auxiliar == 0){
+            devolver.put(Boolean.FALSE, 0);
+        }
+        //Caso TRUE/1 - Se encontró a un estudiante en la posición que el usuario desea y el nodo siguiente es != null
+        else if(temp.getSiguiente() != null){
+            devolver.put(Boolean.TRUE, 1);
+        }
+        //Caso True/0 - Se desea eliminar al ultimo estudiante de la lista de nodos
+        else{
+            devolver.put(Boolean.TRUE, 0);
+        }
+        return devolver;
+    }
+
+
+    public Boolean eliminarEnXPosicion(EntityEstudiante estudiante) throws Exception {
+
+        int numEstudiantes = repositoryEstudiante.findAll().size();
+        int posicionAEliminar = estudiante.getNumeroNodo().intValue();
+        EntityEstudiante buscado = repositoryEstudiante.findByNumeroNodo(1L);
+        //Se aprovecha para usar la variable buscado ya que es el primer estudiante y así el codigo es mas legible
+        HashMap<Boolean, Integer> casos = verificarHayUnEstudianteXPosicion(buscado, estudiante.getNumeroNodo());
+
+        Boolean condicion = casos.containsKey(Boolean.TRUE);
+        Integer numCaso = casos.get(condicion);
+
+        int contador = 1;
+        while(buscado.getSiguiente() != null){
+
+            contador++;
+            buscado = buscado.getSiguiente();
+            if(contador == posicionAEliminar){
+                break;
+            }
+        }
+
+        if( (numEstudiantes >= 1) && (posicionAEliminar == 1) ){
+            System.out.println(repositoryEstudiante.findByNumeroNodo(1L).getNombre());
+            repositoryEstudiante.deleteById(buscado.getId());
+            return Boolean.TRUE;
+        }
+        else if( (condicion) && (numCaso == 0) ){
+            buscado.getAnterior().setSiguiente(null);
+            repositoryEstudiante.deleteById(buscado.getId());
+            return Boolean.TRUE;
+        }
+        else if( (condicion) && (numCaso == 1) ){
+
+            buscado.getAnterior().setSiguiente(buscado.getSiguiente());
+            buscado.getSiguiente().setAnterior(buscado.getAnterior());
+
+            while(buscado.getSiguiente() != null){
+
+                buscado = buscado.getSiguiente();
+                buscado.setNumeroNodo(buscado.getNumeroNodo() - 1);
+            }
+            repositoryEstudiante.deleteById(buscado.getId());
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
     }
 
 

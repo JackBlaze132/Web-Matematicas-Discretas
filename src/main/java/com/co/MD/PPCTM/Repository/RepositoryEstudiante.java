@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface RepositoryEstudiante extends JpaRepository<EntityEstudiante, Long> {
 
     EntityEstudiante findByNumeroNodo(Long numeroNodo);
+    EntityEstudiante deleteByNumeroNodo(Long numeroNodo);
 }

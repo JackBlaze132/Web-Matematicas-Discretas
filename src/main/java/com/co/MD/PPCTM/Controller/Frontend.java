@@ -58,4 +58,12 @@ public class Frontend {
 
         return "crearEstudianteXPosicion";
     }
+
+    @GetMapping (path = "/eliminarEnXposicion")
+    public String eliminarEstudianteEnXPosicion(Model modelo){
+
+        modelo.addAttribute("nEstudiante", new EntityEstudiante());
+
+        return "eliminarEnXPosicion";
+    }
 }

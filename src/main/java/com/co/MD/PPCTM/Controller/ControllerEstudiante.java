@@ -3,6 +3,7 @@ package com.co.MD.PPCTM.Controller;
 import com.co.MD.PPCTM.Domain.EntityEstudiante;
 import com.co.MD.PPCTM.Repository.RepositoryEstudiante;
 import com.co.MD.PPCTM.Services.ServiceEstudiante;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -75,5 +76,19 @@ public class ControllerEstudiante {
         else{
             return new RedirectView("/error");
         }
+    }
+
+    @DeleteMapping(path = "eliminarEstudianteXPosicion")
+    public RedirectView eliminarEstudianteXPosicion(@ModelAttribute EntityEstudiante estudiante, Model modelo){
+
+        try{
+            Boolean elimiando = serviceEstudiante.eliminarEnXPosicion(estudiante);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return new RedirectView("/error");
+        }
+
+        return new RedirectView("/nodes");
     }
 }
