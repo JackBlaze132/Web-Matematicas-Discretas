@@ -3,27 +3,21 @@ body
     padding:0px;
     margin:0px;
     height: 99vh;
+    background: black;
 }
 
-/*#common-navbar{
+#common-navbar
+{
     position: fixed;
     width: 100%;
-}*/
+}
 
 .card{
-
-    /* height: 80px;/*
-   /*width : 80px;*/
-
-
-    font-family: Segoe UI;
     position:absolute;
-
     transition: 100ms;
     vertical-align: middle;
     text-align: center;
     cursor: grab;
-
 }
 
 .card:active{
@@ -31,7 +25,8 @@ body
 }
 
 #cav1{
-    background: url('../img/dots.png');
+    background-color:white;
+    background-image: url('../img/dots.png');
     position: absolute;
     top: 0px;
     z-index: -1;
@@ -45,26 +40,48 @@ body
 .btn {
     text-align: left;
     width: 2.7em;
-    height: 2.4em;
+    height: 2.3em;
     overflow: hidden;
     transition: 100ms;
 }
-.btn:hover{
-    width: 8em;
+/*.btn:hover{
+    width: auto;
+}*/
+#addNode:hover{
+    width: 7.2em;
 }
 
-.footer{
+#addBeg:hover{
+    width: 9.4em;
+}
+
+#addPos:hover{
+    width: 10.9em;
+}
+
+#delNode:hover{
+    width: 7.3em;
+}
+
+#goHome:hover{
+    width: 6.3em;
+}
+
+footer {
     position: absolute;
-    top:930px;
+    top:103vh;
+    right: 0;
     width: 100%;
+    background-color: #f2f2f2;
 }
 
 .nodes-canvas{
-    position: relative;
-    overflow: auto;
     padding-top:68px;
     height: 930px;
     -webkit-overflow-scrolling: touch;
 
 }
 
+/*::-webkit-scrollbar{
+    display: none;
+}*/

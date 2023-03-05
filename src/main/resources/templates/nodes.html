@@ -8,7 +8,8 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link href="css/nodes.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/008b26dd3d.css" crossorigin="anonymous">
-    <link href="img/favicon.png" rel="icon" type="image/png">
+    <link href="img/favicon.png" rel="icon" type="image/png">s
+
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=400px, maximum-scale=1.0" />
@@ -40,18 +41,18 @@
 
 <div style="position: fixed; display: inline-block; top: 68px;">
     <form th:action="@{/crearEstudianteAlFinal}" th:method="get">
-        <button class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-circle-plus icon"></i><span class="btn-txt"> > Agregar</span></button>
+        <button id="addNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-forward-step"></i><span class="btn-txt"> Agregar( )</span></button>
     </form>
     <form th:action="@{/crearEstudianteAlInicio}" th:method="get">
-        <button class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-circle-plus icon"></i><span class="btn-txt"> > A.inicio</span></button>
+        <button id="addBeg" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-backward-step"></i><span class="btn-txt"> Agregar(inicio)</span></button>
     </form>
     <form th:action="@{/crearEstudianteXPosicion}" th:method="get">
-        <button class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-circle-plus icon"></i><span class="btn-txt"> > A.X</span></button>
+        <button id="addPos" class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-circle-plus icon"></i><span class="btn-txt"> Agregar(posicion)</span></button>
     </form>
     <form th:action="@{/eliminarEnXposicion}" th:method="get">
-        <button class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-circle-plus icon"></i><span class="btn-txt"> > E.X</span></button>
+        <button id="delNode" class="m-2 rounded-2  mx-4 btn btn-danger"><i style="margin-left: 2px;" class="fa-solid fa-trash-can"></i><span class="btn-txt"> Eliminar( )</span></button>
     </form>
-    <button class=" m-2 rounded-2 mx-4 btn btn-dark" onclick="location.href='/'"><i class="fa-solid fa-house icon"></i> > Inicio</button>
+    <button id="goHome" class=" m-2 rounded-2 mx-4 btn btn-dark" onclick="location.href='/'"><i class="fa-solid fa-house icon"></i> Inicio( )</button>
 </div>
 
 <p id="numNodos" style="display:none;" th:text="${numeroNodos}"></p>
@@ -71,6 +72,7 @@
 <script src="js/line.js" type="text/javascript"></script>
 <script src="js/node.js" type="text/javascript"></script>
 <script src="js/assets.js" type="text/javascript"></script>
+
 
 </body>
 </html>

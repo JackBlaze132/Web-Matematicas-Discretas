@@ -23,3 +23,20 @@ for(let index in nodes){
     });
 
 }
+
+const footer = document.querySelector('footer');
+
+let lastPosition = 0;
+
+function smoothScroll() {
+    const currentPosition = window.scrollX;
+    const distance = currentPosition - lastPosition;
+    const newPosition = lastPosition + distance; // Ajusta el factor de suavizado aquí
+
+    footer.style.left = `${newPosition}px`;
+    lastPosition = newPosition;
+
+    window.requestAnimationFrame(smoothScroll);
+}
+
+window.requestAnimationFrame(smoothScroll);
