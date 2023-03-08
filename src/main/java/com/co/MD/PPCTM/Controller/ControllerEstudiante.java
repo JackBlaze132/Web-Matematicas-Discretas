@@ -82,13 +82,19 @@ public class ControllerEstudiante {
     public RedirectView eliminarEstudianteXPosicion(@ModelAttribute EntityEstudiante estudiante, Model modelo){
 
         try{
-            Boolean elimiando = serviceEstudiante.eliminarEnXPosicion(estudiante);
+            Boolean eliminado = serviceEstudiante.eliminarEnXPosicion(estudiante);
+
+            if(eliminado){
+                return new RedirectView("/nodes");
+            }
+            else{
+                return new RedirectView("/error");
+            }
         }
         catch(Exception e){
             e.printStackTrace();
             return new RedirectView("/error");
         }
 
-        return new RedirectView("/nodes");
     }
 }
