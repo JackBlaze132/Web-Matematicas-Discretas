@@ -1,14 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/error.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
 </head>
 <body>
 
-    <div style="text-align: center">
-      <h1>Soy la pagina de error ):</h1>
+<div class="container">
+
+    <div class="error">
+        <p class="p">5</p>
+        <span class="dracula">
+			<div class="con">
+				<div class="hair"></div>
+				<div class="hair-r"></div>
+				<div class="head"></div>
+				<div class="eye"></div>
+				<div class="eye eye-r"></div>
+				<div class="mouth"></div>
+				<div class="blod"></div>
+				<div class="blod blod2"></div>
+			</div>
+		</span>
+        <p class="p">0</p>
+
+        <div class="page-ms">
+            <p id="error-text" class="page-msg" th:text="${tipoError}"></p>
+            <script>
+                var error = String(document.getElementById('error-text').textContent);
+                console.log("a")
+                console.log(error);
+            </script>
+            <button class="go-back">Go Back</button>
+        </div>
     </div>
+</div>
+
+<iframe style="width:0;height:0;border:0; border:none;" scrolling="no" frameborder="no" allow="autoplay" src="https://instaud.io/_/2Vvu.mp3"></iframe>
 
 </body>
 </html>

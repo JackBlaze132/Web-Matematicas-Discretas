@@ -14,6 +14,7 @@ public class ServiceEstudiante {
 
     @Autowired
     RepositoryEstudiante repositoryEstudiante;
+    private String mensaje = "Error, no se puede eliminar un nodo que no existe";
 
     /**
      *Este metodo sirve para que al momento de agregar a un nuevo estudiante al final de la lista
@@ -259,6 +260,7 @@ public class ServiceEstudiante {
             repositoryEstudiante.deleteById(aux.getId());
             return Boolean.TRUE;
         }
+        setMensajeError("Ha intentado eliminar un nodo que no existe");
         return Boolean.FALSE;
     }
 
@@ -266,5 +268,13 @@ public class ServiceEstudiante {
     public List<EntityEstudiante> listarEstudiantes(){
 
         return repositoryEstudiante.findAll();
+    }
+
+    public void setMensajeError(String mensaje){
+        this.mensaje = mensaje;
+    }
+
+    public String darMensajeError(){
+        return mensaje;
     }
 }

@@ -26,12 +26,15 @@ public class Frontend {
         List<EntityEstudiante> listaEstudiantes = serviceEstudiante.listarEstudiantes();
         modelo.addAttribute("estudiantes", listaEstudiantes);
         modelo.addAttribute("numeroNodos", listaEstudiantes.size());
+        System.out.println("Hola, entré");
 
         return "nodes";
     }
 
     @GetMapping (path = "/error")
-    public String error(){
+    public String error(Model modelo){
+        modelo.addAttribute("tipoError", "No puede eliminar un nodo inexistente");
+        System.out.println(modelo.getAttribute("tipoError"));
         return "error";
     }
 
