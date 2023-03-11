@@ -17,6 +17,7 @@ public class Frontend {
 
     @GetMapping (path = "/")
     public String home(){
+        System.out.println("hola, index");
         return "index";
     }
 
@@ -33,8 +34,10 @@ public class Frontend {
 
     @GetMapping (path = "/error")
     public String error(Model modelo){
-        modelo.addAttribute("tipoError", "No puede eliminar un nodo inexistente");
-        System.out.println(modelo.getAttribute("tipoError"));
+
+        modelo.addAttribute("tipoError", "No puede borrar un nodo inexistente");
+        System.out.println("Hola, error");
+
         return "error";
     }
 
