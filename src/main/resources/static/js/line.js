@@ -1,6 +1,5 @@
 
 /*
-
 Copyright 2020 Anoop Singh, Graphical Structure
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,9 +14,17 @@ Copyright 2020 Anoop Singh, Graphical Structure
    See the License for the specific language governing permissions and
    limitations under the License.
 
+-----------[MODEIFIED on 2023]----------
+   Eder Daniel Martínez Camacho, Software Engineer
 
+   The presented modification are related to the canvas sizing and the
+   nodes connections lines, the original content is property of Anoop Singht
+   * modified "D" type into "->" type
+   * modified canvas sizing
+   * add "<->" type
 
 */
+
 
 
 var _lines = new Array(); //This array will store all lines (option)
@@ -50,42 +57,28 @@ var _error =false;
 
 
 var connect = function() {
-
-
-
 	var _me = this;
 
-
 	//Initialize Canvas object
-
 	//_canvas.id = "cav1";
 	_canvas.width = document.body.clientWidth * 1.5;
 	_canvas.height = document.body.clientHeight;
 	//document.body.appendChild(_canvas)
 
-
 	_ctx = _canvas.getContext('2d');
-
 
 	this.drawLine = function(option) {
 		//It will push line to array.
 		linemap[`${option.left_node}${option.right_node}`] = _lines.length;
 		_lines.push(option);
 		this.connect(option);
-
 	};
-
-
 
 	this.kruskalize =function (_cl = "rgb(0,0,0,0.08)")  {
 
-
 		for ( line of _lines) {
-
 			line.col = _cl;
-
 		}
-
 	}
 
 	this.changecolor = function (starting , ending , assignedcolor) {
@@ -93,55 +86,30 @@ var connect = function() {
 		if (linemap[`${starting}${ending}`] != undefined)  {
 
 			let  targg = parseInt(linemap[`${starting}${ending}`]);
-
 			console.log(targg , starting , ending  , assignedcolor)
 			_lines[targg].col =assignedcolor;
-
-
 		}
-
 		else {
-
 			let targg = parseInt(linemap[`${ending}${starting}`]);
-
 			console.log(targg , starting , ending  , assignedcolor)
 			_lines[targg].col =assignedcolor;
-
 		}
-
-
-
-
 
 		//this.redrawLines();
 
 	}
 
-
 	this.dl = function(one , two) {
 
-
 		for (var y = 0 ; y < _lines.length ; ++y) {
-
 			if ((_lines[y].left_node) == one &&  (_lines[y].right_node) == two) {
-
 				_lines.splice(y,1);
-
 			}
 		}
-
-
 	};
-
-
 
 	//This Function is used to connect two different div with a dotted line.
 	this.connect = async function(option) {
-
-
-
-
-
 
 		if ( option.left_node == undefined || option.left_node == "null" || option.right_node == undefined || option.right_node == "null"  ) {
 			return;
@@ -249,23 +217,16 @@ var connect = function() {
 
 		}
 
-
 		_ctx.stroke();
-
 
 		f = 1;
 
 		_ctx.font = "20px Segoe ui";
 		_ctx.fillText(option._text,(_right.x +_left.x)/2 ,( _right.y + _left.y)/2);
 
-
-
-
-
 		option.resize = option.resize || true;
 
 	}
-
 
 	window.addEventListener("resize",function()  {
 
@@ -273,21 +234,14 @@ var connect = function() {
 		//_me.Splaylines();
 		//_me.Blines();
 		//_me.Listlines();
-
-
 	})
 
 	this.redrawLines = function() {
 		if (_lines.length == 0) return;
-
 		_ctx.clearRect(0, 0,  10000, 4300);
-
 		for (let li = 0 ; li < _lines.length ;li++) {
-
 			_me.connect(_lines[li])
-
 		}
-
 	};
 
 
@@ -301,10 +255,7 @@ var connect = function() {
 			let destination = tree[source];
 			if(destination != "null")
 				_me.connect({left_node:source , right_node:destination+"treetop"})
-
 		}
-
-
 	};
 
 
@@ -318,10 +269,7 @@ var connect = function() {
 			let destination = next[source];
 			if(destination != "null")
 				_me.connect({left_node:source , right_node:destination , col:"black" ,style:"dashed"})
-
 		}
-
-
 	};
 
 
@@ -335,10 +283,7 @@ var connect = function() {
 			let destination = BTree[source];
 			if(destination != "null")
 				_me.connect({left_node:source , right_node:destination+"top",gtype:"UD" })
-
 		}
-
-
 	};
 
 	return this;

@@ -1,21 +1,15 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=400px, maximum-scale=1.0" />
-    <!--<link href="css/error.css" rel="stylesheet" type="text/css">-->
+    <link href="css/error.css" rel="stylesheet" type="text/css">
     <title>Document</title>
 </head>
 <body>
-<p th:id="error-text" th:text="'hello ' + ${tipoError}"></p>
-<script>
-    var error = String(document.getElementById('error-text').textContent);
-    console.log("a")
-    console.log(error);
-</script>
 
-<!--<div class="container">
+<div class="container">
 
     <div class="error">
         <p class="p">5</p>
@@ -34,19 +28,12 @@
         <p class="p">0</p>
 
         <div class="page-ms">
-            <p id="numNodos" style="display:none;" th:text="${tipoError}"></p>
-
-            <script>
-                var error = String(document.getElementById('error-text').textContent);
-                console.log("a")
-                console.log(error);
-            </script>
-            <button class="go-back">Go Back</button>
+            <button class="go-back" onclick="location.href='/'">Go Back</button>
         </div>
     </div>
 </div>
 
 <iframe style="width:0;height:0;border:0; border:none;" scrolling="no" frameborder="no" allow="autoplay" src="https://instaud.io/_/2Vvu.mp3"></iframe>
--->
+
 </body>
 </html>

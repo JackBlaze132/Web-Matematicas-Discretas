@@ -1,3 +1,12 @@
+/**
+ * Función que permite cargar los componentes dentro de la misma
+ * Carga la barra de navegación en un <div> con una "id" específica
+ * Carga el footer en un <footer> con una "id" específica
+ * carga un modal de bootstrap en un <div> con una "id" específica
+ * @param #common-navbar
+ * @param #common-footer
+ * @param #common-modal
+ */
 window.onload = function() {
     $.get("assets/navbar.html", function (data) {
         $("#common-navbar").html(data);
