@@ -48,12 +48,16 @@ public class Frontend {
     }
 
     /**
-     * Método que redirige a la página de error
-     * @return paágina de "error"
+     * Método que crea un nuevo modelo que permite mostrar un mensaje de error en la página "/screw"
+     * @param modelo Hace parte del MVC (modelo vista controlador) y sirve para que el html reconozca
+     *               los atributos que sean agregados
+     * @return página de error
      */
-    @GetMapping (path = "/error")
-    public String error(){
-        return "error";
+    @GetMapping (path = "/screw")
+    public String screw(Model modelo){
+        modelo.addAttribute("tipoError", "Error interno del servidor");
+
+        return "screw";
     }
 
     /**

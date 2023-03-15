@@ -37,7 +37,7 @@ public class ControllerEstudiante {
             return new RedirectView("/nodes");
         }
         else{
-            return new RedirectView("/error");
+            return new RedirectView("/screw");
         }
     }
 
@@ -59,7 +59,7 @@ public class ControllerEstudiante {
             return new RedirectView("/nodes");
         }
         else{
-            return new RedirectView("/error");
+            return new RedirectView("/screw");
         }
     }
 
@@ -80,7 +80,7 @@ public class ControllerEstudiante {
             return new RedirectView("/nodes");
         }
         else{
-            return new RedirectView("/error");
+            return new RedirectView("/screw");
         }
     }
 
@@ -101,12 +101,12 @@ public class ControllerEstudiante {
                 return new RedirectView("/nodes");
             }
             else{
-                return new RedirectView("/error");
+                return new RedirectView("/screw");
             }
         }
         catch(Exception e){
             e.printStackTrace();
-            return new RedirectView("/error");
+            return new RedirectView("/screw");
         }
 
     }

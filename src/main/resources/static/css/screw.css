@@ -1,18 +1,6 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-*::before,
-*::after {
-    content: "";
-    position: absolute;
-}
-
 body {
     background: #1b0034;
-    background-image: linear-gradient(135deg, #1b0034 10%, #33265c 100%);
+    background-image: linear-gradient(135deg, #3e306e 10%,  #16002a 100%);
     background-attachment: fixed;
     background-size: cover;
 }
@@ -39,15 +27,15 @@ body {
     font-size: 280px;
     margin: 50px;
     display: inline-block;
-    font-family: "Anton", sans-serif;
-    font-family: "Combo", cursive;
+    font-family: "system-ui", sans-serif;
+    font-family: "system-ui", cursive;
 }
 
 .con {
     width: 500px;
     height: 500px;
     position: relative;
-    margin: 9% auto 0;
+    margin: 27% auto 0;
     animation: ani9 0.7s ease-in-out infinite alternate;
 }
 
@@ -172,12 +160,13 @@ body {
     text-align: center;
     color: #c0d7dd;
     font-size: 30px;
-    font-family: "Combo", cursive;
+    font-family: "system-ui", cursive;
     margin-bottom: 20px;
 }
 button.go-back {
     font-size: 30px;
-    font-family: "Combo", cursive;
+    font-family: "system-ui", cursive;
+    font-weight: bold;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
