@@ -237,6 +237,10 @@ public class ServiceEstudiante {
         int posicion = posicionAEliminar.intValue();
         EntityEstudiante temp = primerEstudiante;
 
+        if(primerEstudiante != null && posicion == 1){
+            devolver.put(Boolean.TRUE,2);
+            return devolver;
+        }
         // Si la lista está vacía, no hay estudiantes en la posición dada, por lo que se devuelve un HashMap con FALSE y 0
         if(temp == null){
             devolver.put(Boolean.FALSE, 0);
