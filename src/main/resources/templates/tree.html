@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>Hola</h1>
+
+  <div th:each="itemNodo : ${listaNodos}" >
+      <div class="card col-2 col-lg-1">
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item" th:text="${itemNodo.valor}"></li>
+          </ul>
+      </div>
+  </div>
+
+  <form th:action="@{/crearNodo}" th:method="get">
+      <button><span class="btn-txt"> Agregar( )</span></button>
+  </form>
+</body>
+</html>

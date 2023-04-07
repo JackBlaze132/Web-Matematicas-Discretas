@@ -1,7 +1,9 @@
 package com.co.MD.PPCTM.Controller;
 
 import com.co.MD.PPCTM.Domain.EntityEstudiante;
+import com.co.MD.PPCTM.Domain.EntityNodoArbol;
 import com.co.MD.PPCTM.Services.ServiceEstudiante;
+import com.co.MD.PPCTM.Services.ServiceNodoArbol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,9 @@ public class Frontend {
 
     @Autowired
     ServiceEstudiante serviceEstudiante;
+
+    @Autowired
+    ServiceNodoArbol serviceNodoArbol;
 
     /**
      * Método que redirige a la página de inicio
@@ -58,6 +63,23 @@ public class Frontend {
         modelo.addAttribute("tipoError", "Error interno del servidor");
 
         return "screw";
+    }
+
+    @GetMapping(path = "/tree")
+    public String tree(Model modelo){
+        List<EntityNodoArbol> listaNodos = serviceNodoArbol.listarNodosArbol();
+
+        modelo.addAttribute("listaNodos",listaNodos);
+
+        return "tree";
+    }
+
+    @GetMapping (path = "/crearNodo")
+    public String crearNodo(Model modelo){
+
+        modelo.addAttribute("nNodo", new EntityNodoArbol());
+
+        return "crearNodo";
     }
 
     /**

@@ -73,7 +73,7 @@ public class ServiceEstudiante {
 
         try{
             // Si la lista está vacía, establecer el nodo como el único nodo en la lista.
-            if(repositoryEstudiante.findAll().size() == 0){
+            if(listarEstudiantes().size() == 0){
                 estudiante.setAnterior(null);
                 estudiante.setSiguiente(null);
                 estudiante.setNumeroNodo(numeroNodos);
@@ -120,7 +120,7 @@ public class ServiceEstudiante {
     public Boolean insertarEstudianteAlInicio(EntityEstudiante estudiante){
 
         // Si la lista se encuentra vacía crea un estudiante (el final y el inicio de la lista sería el mismo).
-        if(repositoryEstudiante.findAll().size() == 0){
+        if(listarEstudiantes().size() == 0){
             insertarEstudianteAlFinal(estudiante);
         }
         else{
@@ -147,7 +147,7 @@ public class ServiceEstudiante {
         // Obtenemos el número de nodo del estudiante que se desea insertar.
         int aIngresar = estudiante.getNumeroNodo().intValue();
         // Obtenemos el número de estudiantes en la lista.
-        int numEstudiantes = repositoryEstudiante.findAll().size();
+        int numEstudiantes = listarEstudiantes().size();
 
         // Si la posición en la que se desea insertar es inválida, se devuelve falso.
         if (aIngresar < 1) {
