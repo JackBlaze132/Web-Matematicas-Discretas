@@ -31,6 +31,7 @@ public class ServiceNodoArbol {
                 if(actual.getHijoIzquierdo() == null){
                     EntityNodoArbol nodoAGuardar = new EntityNodoArbol(valor, contador);
                     actual.setHijoIzquierdo(nodoAGuardar);
+                    nodoAGuardar.setIsLeft(Boolean.TRUE);
                     repositoryNodoArbol.save(nodoAGuardar);
                     break;
                 }
@@ -43,6 +44,7 @@ public class ServiceNodoArbol {
                 if(actual.getHijoDerecho() == null){
                     EntityNodoArbol nodoAGuardar = new EntityNodoArbol(valor, contador);
                     actual.setHijoDerecho(nodoAGuardar);
+                    nodoAGuardar.setIsRight(Boolean.TRUE);
                     repositoryNodoArbol.save(nodoAGuardar);
                     break;
                 }
@@ -51,11 +53,20 @@ public class ServiceNodoArbol {
                 }
             }
         }
+        List<EntityNodoArbol> listaNodos = listarNodosArbol();
+        for (EntityNodoArbol nodo: listaNodos) {
+            if( ((nodo.getHijoIzquierdo() != null) || (nodo.getHijoDerecho() != null)) ){
+                nodo.setIsFather(Boolean.TRUE);
+                repositoryNodoArbol.save(nodo);
+            }
+        }
         return Boolean.TRUE;
     }
 
     public void insertarNodoRaiz(){
-        repositoryNodoArbol.save(new EntityNodoArbol(50L,1L));
+        EntityNodoArbol raiz = new EntityNodoArbol(50L,1L);
+        raiz.setIsFather(Boolean.TRUE);
+        repositoryNodoArbol.save(raiz);
     }
 
     public List<EntityNodoArbol> listarNodosArbol(){

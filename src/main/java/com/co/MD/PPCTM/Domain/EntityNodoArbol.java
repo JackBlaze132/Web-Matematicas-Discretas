@@ -26,6 +26,14 @@ public class EntityNodoArbol {
     @Column(name = "nivelNodo")
     private Long nivelNodo;
 
+    @Column(name = "isLeft")
+    private Boolean isLeft;
+
+    @Column(name = "isRight")
+    private Boolean isRight;
+
+    @Column(name = "isFather")
+    private Boolean isFather;
 
     public EntityNodoArbol(){
 
@@ -36,6 +44,9 @@ public class EntityNodoArbol {
          nivelNodo = pNivelNodo;
          hijoIzquierdo = null;
          hijoDerecho = null;
+         isLeft = Boolean.FALSE;
+         isRight = Boolean.FALSE;
+         isFather = Boolean.FALSE;
      }
 
 }
