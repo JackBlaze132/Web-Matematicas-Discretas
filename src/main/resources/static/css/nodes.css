@@ -24,13 +24,13 @@ body
     cursor: grabbing;
 }
 
-#cav1{
-    background-color:white;
-    background-image: url('../img/dots.png');
-    position: absolute;
-    top: 0px;
-    z-index: -1;
-}
+    #cav1{
+        background-color:white;
+        background-image: url('../img/dots.png');
+        position: absolute;
+        top: 0px;
+        z-index: -1;
+    }
 
 .icon{
     width: 18px;

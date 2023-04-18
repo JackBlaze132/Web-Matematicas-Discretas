@@ -24,7 +24,10 @@ for(let index in nodes){
         width: 2,
         gtype: "<->"
     })
+    console.log(String('c' + (index++)))
+    console.log(String('c' + (index)))
 
+    LineController.drawLine
     $( '#'+ 'c' + String(index) ).draggable({
         drag: function(event, ui){LineController.redrawLines();}
     });

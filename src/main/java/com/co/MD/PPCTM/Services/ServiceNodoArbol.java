@@ -58,7 +58,6 @@ public class ServiceNodoArbol {
         repositoryNodoArbol.save(new EntityNodoArbol(50L,1L));
     }
 
-
     public List<EntityNodoArbol> listarNodosArbol(){
         return repositoryNodoArbol.findAll();
     }

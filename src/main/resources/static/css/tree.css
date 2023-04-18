@@ -1,0 +1,54 @@
+body{
+    overflow-x: hidden;
+}
+#common-navbar
+{
+    position: fixed;
+    width: 100%;
+}
+
+
+.nodes-canvas {
+    padding-top: 68px;
+    height: 930px;
+}
+
+.leaf{
+    font-size: 24px;
+    max-width: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    position: absolute;
+
+}
+
+#cav1{
+    background-color:white;
+    background-image: url('../img/dots.png');
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+
+}
+
+.btn {
+    text-align: left;
+    width: 2.7em;
+    height: 2.3em;
+    overflow: hidden;
+    transition: 100ms;
+}
+
+#addNode:hover{
+    width: 7.2em;
+}
+
+footer {
+    position: absolute;
+    top:103vh;
+    right: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+}

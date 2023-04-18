@@ -70,6 +70,7 @@ public class Frontend {
         List<EntityNodoArbol> listaNodos = serviceNodoArbol.listarNodosArbol();
 
         modelo.addAttribute("listaNodos",listaNodos);
+        modelo.addAttribute("numeroNodos",listaNodos.size());
 
         return "tree";
     }
