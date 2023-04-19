@@ -27,8 +27,13 @@ body{
     font-size: 20px;
     font-weight: bold;
     position: absolute;
+    cursor: grab;
 
 }
+.leaf:active{
+    cursor: grabbing;
+}
+
 
 #cav1{
     background-color:white;
