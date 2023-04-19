@@ -20,10 +20,4 @@ window.onload = function() {
             .addClass('active')
             .find('a').append('<span class="sr-only">(current)</span>');
     });
-    $.get("assets/crearEstudiante.html", function (data) {
-        $("#common-modal").html(data);
-        $('.modal-body').find('li:nth-child(2)')
-            .addClass('active')
-            .find('a').append('<span class="sr-only">(current)</span>');
-    });
 }
