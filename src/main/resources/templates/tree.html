@@ -29,11 +29,22 @@
     <form th:action="@{/crearNodo}" th:method="get">
         <button id="addNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-forward-step"></i><span class="btn-txt"> Agregar( )</span></button>
     </form>
+    <form th:action="@{/buscarNodo}" th:method="get">
+        <button id="searchNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-forward-step"></i><span class="btn-txt"> Buscar( )</span></button>
+    </form>
+    <form th:action="@{/eliminarNodo}" th:method="get">
+        <button id="deleteNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-forward-step"></i><span class="btn-txt"> Buscar( )</span></button>
+    </form>
 </div>
 
 <p id="numNodos" style="display:none;" th:text="${numeroNodos}"></p>
 
 <footer id="common-footer" class="footer" style="position: absolute"></footer>
+<div>
+    <p th:text="'PreOrden: ' + ${preOrden}"></p>
+    <p th:text="'InOrden: ' + ${inOrden}"></p>
+    <p th:text="'PostOrden: ' + ${postOrden}"></p>
+</div>
 
 
 <!-- Scripts de bootstrap-->

@@ -6,4 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface RepositoryNodoArbol extends JpaRepository<EntityNodoArbol, Long> {
 
     EntityNodoArbol findByValor(Long valor);
+
+    EntityNodoArbol findByHijoIzquierdo(EntityNodoArbol nodoArbol);
+
+    EntityNodoArbol findByHijoDerecho(EntityNodoArbol nodoArbol);
 }

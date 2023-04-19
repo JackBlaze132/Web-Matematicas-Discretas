@@ -2,6 +2,7 @@ package com.co.MD.PPCTM.Controller;
 
 import com.co.MD.PPCTM.Domain.EntityEstudiante;
 import com.co.MD.PPCTM.Domain.EntityNodoArbol;
+import com.co.MD.PPCTM.Repository.RepositoryNodoArbol;
 import com.co.MD.PPCTM.Services.ServiceEstudiante;
 import com.co.MD.PPCTM.Services.ServiceNodoArbol;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class Frontend {
 
     @Autowired
     ServiceNodoArbol serviceNodoArbol;
+
+    @Autowired
+    RepositoryNodoArbol repositoryNodoArbol;
 
     /**
      * Método que redirige a la página de inicio
@@ -71,6 +75,9 @@ public class Frontend {
 
         modelo.addAttribute("listaNodos",listaNodos);
         modelo.addAttribute("numeroNodos",listaNodos.size());
+        modelo.addAttribute("preOrden",serviceNodoArbol.recorrerPreOrden(repositoryNodoArbol.findByValor(50L),""));
+        modelo.addAttribute("postOrden",serviceNodoArbol.recorrerPostOrden(repositoryNodoArbol.findByValor(50L),""));
+        modelo.addAttribute("inOrden",serviceNodoArbol.recorrerInOrden(repositoryNodoArbol.findByValor(50L),""));
 
         return "tree";
     }
@@ -81,6 +88,22 @@ public class Frontend {
         modelo.addAttribute("nNodo", new EntityNodoArbol());
 
         return "crearNodo";
+    }
+
+    @GetMapping (path = "/buscarNodo")
+    public String buscarNodo(Model modelo){
+
+        modelo.addAttribute("nNodo", new EntityNodoArbol());
+
+        return "buscarNodo";
+    }
+
+    @GetMapping (path = "/eliminarNodo")
+    public String eliminarNodo(Model modelo){
+
+        modelo.addAttribute("nNodo", new EntityNodoArbol());
+
+        return "eliminarNodo";
     }
 
     /**
