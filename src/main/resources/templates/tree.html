@@ -14,22 +14,22 @@
 <body>
 <header id="common-navbar"></header>
 <div class="nodes-canvas">
-  <div th:each="itemNodo : ${listaNodos}">
-      <div th:class="'card col-2 col-lg-1 leaf level' + ${itemNodo.nivelNodo}"
-           th:id=" 'c' + ${itemNodo.valor}"
-           th:style="'top: ' + (250 * ${itemNodo.nivelNodo}) + 'px; left: ' + ((50 / ${itemNodo.nivelNodo}) * (${itemNodo.valor}/50)) +'%'"
-           th:text="${itemNodo.valor}">
-      </div>
-  </div>
+    <div th:each="itemNodo : ${listaNodos}">
+        <div th:class="'card col-2 col-lg-1 leaf level' + ${itemNodo.nivelNodo} + ' father'+ ${itemNodo.isFather} + ' c' + ${itemNodo.hijoDerecho != null  ? '' + itemNodo.hijoDerecho.id:'null'} + ' c' + ${itemNodo.hijoIzquierdo != null  ? '' + itemNodo.hijoIzquierdo.id:'null'} "
+             th:id=" 'c' + ${itemNodo.id}"
+             th:style="'top: ' + (170 * (${itemNodo.nivelNodo})) + 'px; left: ' + ((50 / ${itemNodo.nivelNodo}) * (${itemNodo.valor}/50)) +'%'"
+             th:text="${itemNodo.valor}">
+        </div>
+    </div>
 </div>
 <div>
     <canvas id="cav1"></canvas>
 </div>
 
 <div style="position: fixed; display: inline-block; top: 68px;">
-  <form th:action="@{/crearNodo}" th:method="get">
-      <button id="addNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-forward-step"></i><span class="btn-txt"> Agregar( )</span></button>
-  </form>
+    <form th:action="@{/crearNodo}" th:method="get">
+        <button id="addNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-forward-step"></i><span class="btn-txt"> Agregar( )</span></button>
+    </form>
 </div>
 
 <p id="numNodos" style="display:none;" th:text="${numeroNodos}"></p>
