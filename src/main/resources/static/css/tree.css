@@ -1,3 +1,4 @@
+
 body{
     overflow-x: hidden;
     background: black;
@@ -56,6 +57,27 @@ body{
     width: 7.2em;
 }
 
+#searchNode:hover{
+    width: 6.7em;
+}
+#deleteNode:hover{
+     width: 7.3em;
+ }
+.console-orders{
+    font-family: Consolas;
+    font-size: 14px;
+    position: absolute;
+    right: 20px;
+    bottom: 60px;
+    background: black;
+    color: white;
+    border: 5px solid grey;
+}
+.isSelected{
+    background: var(--bs-indigo);
+    color: white;
+    box-shadow: 0 0 22px var(--bs-indigo);
+}
 footer {
     position: absolute;
     top:103vh;

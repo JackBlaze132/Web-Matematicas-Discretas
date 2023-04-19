@@ -14,7 +14,7 @@
 <header id="common-navbar"></header>
 <div class="nodes-canvas">
     <div th:each="itemNodo : ${listaNodos}">
-        <div th:class="'card col-2 col-lg-1 leaf level' + ${itemNodo.nivelNodo} + ' father'+ ${itemNodo.isFather} + ' c' + ${itemNodo.hijoDerecho != null  ? '' + itemNodo.hijoDerecho.id:'null'} + ' c' + ${itemNodo.hijoIzquierdo != null  ? '' + itemNodo.hijoIzquierdo.id:'null'} "
+        <div th:class="'card col-2 col-lg-1 leaf father'+ ${itemNodo.isFather} + ' c' + ${itemNodo.hijoDerecho != null  ?  itemNodo.hijoDerecho.id:'null'} + ' c' + ${itemNodo.hijoIzquierdo != null  ? itemNodo.hijoIzquierdo.id:'null'} + ' ' +${itemNodo.isSelected}"
              th:id=" 'c' + ${itemNodo.id}"
              th:style="'top: ' + (170 * (${itemNodo.nivelNodo})) + 'px; left: ' + ((50 / ${itemNodo.nivelNodo}) * (${itemNodo.valor}/50)) +'%'"
              th:text="${itemNodo.valor}">
@@ -30,20 +30,22 @@
         <button id="addNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-forward-step"></i><span class="btn-txt"> Agregar( )</span></button>
     </form>
     <form th:action="@{/buscarNodo}" th:method="get">
-        <button id="searchNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-forward-step"></i><span class="btn-txt"> Buscar( )</span></button>
+        <button id="searchNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i><span class="btn-txt"> Buscar( )</span></button>
     </form>
     <form th:action="@{/eliminarNodo}" th:method="get">
-        <button id="deleteNode" class="m-2 rounded-2  mx-4 btn btn-primary"><i style="margin-left: 3px;" class="fa-solid fa-forward-step"></i><span class="btn-txt"> Buscar( )</span></button>
+        <button id="deleteNode" class="m-2 rounded-2  mx-4 btn btn-danger"><i style="margin-left: 2px;" class="fa-solid fa-trash-can"></i><span class="btn-txt"> Eliminar( )</span></button>
     </form>
 </div>
 
 <p id="numNodos" style="display:none;" th:text="${numeroNodos}"></p>
 
 <footer id="common-footer" class="footer" style="position: absolute"></footer>
-<div>
-    <p th:text="'PreOrden: ' + ${preOrden}"></p>
-    <p th:text="'InOrden: ' + ${inOrden}"></p>
-    <p th:text="'PostOrden: ' + ${postOrden}"></p>
+<div class="card p-4 console-orders">
+    <p>-----[MÉTODOS DE ORDENAMIENTO]-----</p>
+    <p th:text="'> PreOrde = [' + ${preOrden}+ ']'" ></p>
+    <p th:text="'> InOrden = [' + ${inOrden} +']'"></p>
+    <p th:text="'> PostOrden = [' + ${postOrden} + ']'"></p>
+    <p><span class="blink-anim">_</span></p>
 </div>
 
 
