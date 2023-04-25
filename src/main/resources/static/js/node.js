@@ -27,8 +27,7 @@ for(let index in nodes){
     console.log(String('c' + (index++)))
     console.log(String('c' + (index)))
 
-    LineController.drawLine
-    $( '#'+ 'c' + String(index) ).draggable({
+    $( '#'+ 'c' + String(index-1) ).draggable({
         drag: function(event, ui){LineController.redrawLines();}
     });
 

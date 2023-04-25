@@ -14,7 +14,6 @@ body
 
 .card{
     position:absolute;
-    transition: 100ms;
     vertical-align: middle;
     text-align: center;
     cursor: grab;
