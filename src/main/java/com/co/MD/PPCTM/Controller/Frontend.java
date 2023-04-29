@@ -1,16 +1,21 @@
 package com.co.MD.PPCTM.Controller;
 
+import com.co.MD.PPCTM.Domain.EntityCancion;
 import com.co.MD.PPCTM.Domain.EntityEstudiante;
 import com.co.MD.PPCTM.Domain.EntityNodoArbol;
 import com.co.MD.PPCTM.Repository.RepositoryNodoArbol;
+import com.co.MD.PPCTM.Repository.RepositoryPlayList;
 import com.co.MD.PPCTM.Services.ServiceEstudiante;
 import com.co.MD.PPCTM.Services.ServiceNodoArbol;
+import com.co.MD.PPCTM.Services.ServicePlayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Clase que realiza el trabajo de enrutar las direcciones en la web.
@@ -25,7 +30,13 @@ public class Frontend {
     ServiceNodoArbol serviceNodoArbol;
 
     @Autowired
+    ServicePlayList servicePlayList;
+
+    @Autowired
     RepositoryNodoArbol repositoryNodoArbol;
+
+    @Autowired
+    RepositoryPlayList repositoryPlayList;
 
     /**
      * Método que redirige a la página de inicio
@@ -68,6 +79,33 @@ public class Frontend {
 
         return "screw";
     }
+
+    @GetMapping(path = "/playList")
+    public String playList(Model modelo){
+        modelo.addAttribute("listaCanciones", servicePlayList.listarCanciones());
+        return "playList";
+    }
+
+    @GetMapping(path = "/crearCancion")
+    public String crearCancion(Model modelo){
+        modelo.addAttribute("nCancion", new EntityCancion());
+        return "crearCancion";
+    }
+
+    @GetMapping(path = "/eliminarCancion")
+    public String eliminarCancion(Model modelo){
+        modelo.addAttribute("listaCanciones", servicePlayList.listarCanciones());
+        modelo.addAttribute("cancionAEliminar", new EntityCancion());
+        return "eliminarCancion";
+    }
+
+    @GetMapping("/editarCancion")
+    public String mostrarFormularioEdicion(Model modelo) {
+        modelo.addAttribute("nCancion", new EntityCancion());
+        modelo.addAttribute("canciones", servicePlayList.listarCanciones());
+        return "editarCancion";
+    }
+
 
     @GetMapping(path = "/tree")
     public String tree(Model modelo){

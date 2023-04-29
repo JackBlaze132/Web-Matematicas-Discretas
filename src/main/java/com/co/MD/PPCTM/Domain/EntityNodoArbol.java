@@ -47,8 +47,6 @@ public class EntityNodoArbol {
          nivelNodo = pNivelNodo;
          hijoIzquierdo = null;
          hijoDerecho = null;
-         /*isLeft = Boolean.FALSE;
-         isRight = Boolean.FALSE;*/
          isFather = Boolean.FALSE;
          isSelected = "";
      }

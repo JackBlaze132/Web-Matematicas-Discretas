@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar canción</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#cancion').change(function() {
+                var selectedCancionId = $(this).val();
+                $.ajax({
+                    type: "GET",
+                    url: "/playList/cancion/" + selectedCancionId,
+                    success: function(cancion) {
+                        $('#id').val(cancion.id);
+                        $('#titulo').val(cancion.titulo);
+                        $('#autor').val(cancion.autor);
+                        $('#genero').val(cancion.genero);
+                        $('#duracion').val(cancion.duracion);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>Editar canción</h1>
+<form method="post" action="/playList/editarCancion">
+    <label for="cancion">Selecciona una canción:</label>
+    <select id="cancion" name="cancion" th:field="*{nCancion}">
+        <option th:each="cancion : ${canciones}" th:value="${cancion.id}" th:text="${cancion.titulo}"></option>
+    </select>
+    <label for="id"></label>
+    <input type="hidden" autocomplete="off" id="id" name="id">
+    <label for="titulo">Título:</label>
+    <input type="text" autocomplete="off" id="titulo" name="titulo">
+    <label for="autor">Artista:</label>
+    <input type="text" autocomplete="off" id="autor" name="autor">
+    <label for="genero">Género:</label>
+    <input type="text" autocomplete="off" id="genero" name="genero">
+    <label for="duracion">Duración:</label>
+    <input type="text" autocomplete="off" id="duracion" name="duracion">
+    <input type="hidden" autocomplete="off" name="idCancion" id="idCancion">
+    <button type="submit">Guardar cambios</button>
+</form>
+
+<script>
+    $(document).ready(function() {
+        $('#cancion').change(function() {
+            var selectedCancionId = $(this).val();
+            $('#idCancion').val(selectedCancionId);
+        });
+    });
+</script>
+</body>
+</html>

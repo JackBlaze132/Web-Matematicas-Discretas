@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Playlist</title>
+</head>
+<body>
+
+    <form th:action="@{/crearCancion}" th:method="get">
+        <button>Agregar</button>
+    </form>
+    <form th:action="@{/eliminarCancion}" th:method="get">
+        <button>Eliminar</button>
+    </form>
+    <form th:action="@{/editarCancion}" th:method="get">
+        <button>Editar</button>
+    </form>
+
+    <div th:each="itemCancion : ${listaCanciones}" >
+        <p th:text="${itemCancion.titulo}"></p>
+        <p th:text="${itemCancion.autor}"></p>
+        <p th:text="${itemCancion.genero}"></p>
+        <p th:text="${itemCancion.duracion}"></p>
+    </div>
+</body>
+</html>
