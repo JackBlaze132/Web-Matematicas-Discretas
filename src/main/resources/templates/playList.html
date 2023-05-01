@@ -16,11 +16,19 @@
         <button>Editar</button>
     </form>
 
-    <div th:each="itemCancion : ${listaCanciones}" >
-        <p th:text="${itemCancion.titulo}"></p>
-        <p th:text="${itemCancion.autor}"></p>
-        <p th:text="${itemCancion.genero}"></p>
-        <p th:text="${itemCancion.duracion}"></p>
-    </div>
+    <table>
+        <tr>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Genero</th>
+            <th>Duracion</th>
+        </tr>
+        <tr th:each="itemCancion : ${listaCanciones}" >
+            <td th:text="${itemCancion.titulo}"></td>
+            <td th:text="${itemCancion.autor}"></td>
+            <td th:text="${itemCancion.genero}"></td>
+            <td th:text="${itemCancion.duracion}"></td>
+        </tr>
+    </table>
 </body>
 </html>
