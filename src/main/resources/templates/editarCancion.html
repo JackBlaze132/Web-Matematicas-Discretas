@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar canción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/playList.css" rel="Stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -22,27 +25,33 @@
             });
         });
     </script>
+
 </head>
-<body>
-<h1>Editar canción</h1>
-<form method="post" action="/playList/editarCancion">
-    <label for="cancion">Selecciona una canción:</label>
-    <select id="cancion" name="cancion" th:field="*{nCancion}">
-        <option th:each="cancion : ${canciones}" th:value="${cancion.id}" th:text="${cancion.titulo}"></option>
-    </select>
-    <label for="id"></label>
-    <input type="hidden" autocomplete="off" id="id" name="id">
-    <label for="titulo">Título:</label>
-    <input type="text" autocomplete="off" id="titulo" name="titulo">
-    <label for="autor">Artista:</label>
-    <input type="text" autocomplete="off" id="autor" name="autor">
-    <label for="genero">Género:</label>
-    <input type="text" autocomplete="off" id="genero" name="genero">
-    <label for="duracion">Duración:</label>
-    <input type="text" autocomplete="off" id="duracion" name="duracion">
-    <input type="hidden" autocomplete="off" name="idCancion" id="idCancion">
-    <button type="submit">Guardar cambios</button>
-</form>
+<body style="background: white">
+<div class="d-flex flex-column align-items-center px-4 py-5 my-5 text-center">
+    <h1 class="mb-4">Editar canción</h1>
+    <form method="post" action="/playList/editarCancion">
+        <label for="cancion">Selecciona una canción:</label>
+        <select id="cancion" name="cancion" th:field="*{nCancion}" class="form-select">
+            <option th:each="cancion : ${canciones}" th:value="${cancion.id}" th:text="${cancion.titulo}"></option>
+        </select>
+        <label for="id"></label>
+        <input type="hidden" autocomplete="off" id="id" name="id" class="form-control">
+        <label for="titulo">Título:</label>
+        <input type="text" autocomplete="off" id="titulo" name="titulo" class="form-control">
+        <label for="autor">Artista:</label>
+        <input type="text" autocomplete="off" id="autor" name="autor" class="form-control">
+        <label for="genero">Género:</label>
+        <input type="text" autocomplete="off" id="genero" name="genero" class="form-control">
+        <label for="duracion">Duración:</label>
+        <input type="text" autocomplete="off" id="duracion" name="duracion" class="form-control">
+        <input type="hidden" autocomplete="off" name="idCancion" id="idCancion">
+        <br><br>
+        <button class="btn btn-primary save-btn" type="submit">Guardar cambios<i class="bi bi-cassette-fill button-icon"></i></button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function() {

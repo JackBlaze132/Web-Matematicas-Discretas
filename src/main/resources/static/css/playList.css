@@ -1,0 +1,48 @@
+body{
+    background-image: url("../img/dots.png");
+}
+.table-container{
+    min-height: 75vh;
+
+}
+.song-table{
+    background: #fff;
+}
+.tableHeader {
+    background-color: var(--bs-indigo);
+    color: #FFF;
+}
+
+.btn {
+    text-align: left;
+    width: 2.7em;
+    height: 2.3em;
+    overflow: hidden;
+    transition: 100ms;
+}
+
+#add:hover{
+    width: 7.4em;
+}
+
+#edit:hover{
+    width: 6.4em;
+}
+
+#delete:hover{
+    width: 7.3em;
+}
+
+.form-control{
+    display: inline-block;
+    width: inherit;
+}
+
+.form-select{
+    display: inline-block;
+    width: inherit;
+}
+
+.save-btn{
+    width: inherit;
+}

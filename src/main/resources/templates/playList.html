@@ -1,34 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Playlist</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>playList</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+        <link href="css/playList.css" rel="stylesheet" type="text/css">
+        <link href="img/favicon.png" rel="icon" type="image/png">
+
+    </head>
 </head>
 <body>
+    <header id="common-navbar"></header>
 
-    <form th:action="@{/crearCancion}" th:method="get">
-        <button>Agregar</button>
-    </form>
-    <form th:action="@{/eliminarCancion}" th:method="get">
-        <button>Eliminar</button>
-    </form>
-    <form th:action="@{/editarCancion}" th:method="get">
-        <button>Editar</button>
-    </form>
-
-    <table>
-        <tr>
-            <th>Titulo</th>
-            <th>Autor</th>
-            <th>Genero</th>
-            <th>Duracion</th>
-        </tr>
-        <tr th:each="itemCancion : ${listaCanciones}" >
-            <td th:text="${itemCancion.titulo}"></td>
-            <td th:text="${itemCancion.autor}"></td>
-            <td th:text="${itemCancion.genero}"></td>
-            <td th:text="${itemCancion.duracion}"></td>
-        </tr>
-    </table>
+    <div class="container table-container py-5">
+        <table class="table table-striped song-table">
+            <thead th:class="tableHeader">
+                <tr>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Duracion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="itemCancion : ${listaCanciones}" >
+                    <td th:text="${itemCancion.titulo}"></td>
+                    <td th:text="${itemCancion.autor}"></td>
+                    <td th:text="${itemCancion.genero}"></td>
+                    <td th:text="${itemCancion.duracion}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="position: fixed; display: inline-block; top: 68px;">
+        <form th:action="@{/crearCancion}" th:method="get">
+            <button id="add" class="m-2 rounded-2  mx-4 btn btn-primary"><i class="bi bi-plus-circle-fill"></i><span class="btn-txt"> Agregar( )</span></button>
+        </form>
+        <form th:action="@{/editarCancion}" th:method="get">
+            <button id="edit" class="m-2 rounded-2  mx-4 btn btn-primary"><i class="bi bi-pencil-fill"></i><span class="btn-txt"> Editar( )</span></button>
+        </form>
+        <form th:action="@{/eliminarCancion}" th:method="get">
+            <button id="delete" class="m-2 rounded-2  mx-4 btn btn-danger"><i style="margin-left: 2px;" class="fa-solid fa-trash-can"></i><span class="btn-txt"> Eliminar( )</span></button>
+        </form>
+    </div>
+    <footer id="common-footer"></footer>
+    <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/008b26dd3d.js" crossorigin="anonymous" type="text/javascript"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
+    <!-- JQueries-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <!--Custom Libraries-->
+    <script src="js/line.js" type="text/javascript"></script>
+    <script src="js/leaf.js" type="text/javascript"></script>
+    <script src="js/assets.js" type="text/javascript"></script>
 </body>
 </html>
