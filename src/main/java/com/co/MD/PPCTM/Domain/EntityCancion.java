@@ -27,16 +27,19 @@ public class EntityCancion {
 
     private String duracion;
 
+    private Integer posicion;
+
     public EntityCancion(){
 
     }
 
-    public EntityCancion(String titulo, String autor, String genero, Long numMinutos, Long numSegundos) {
+    public EntityCancion(String titulo, String autor, String genero, Long numMinutos, Long numSegundos, Integer posicion) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.numMinutos = numMinutos;
         this.numSegundos = numSegundos;
         this.duracion = "" + numMinutos + ":" + numSegundos;
+        this.posicion = posicion;
     }
 }

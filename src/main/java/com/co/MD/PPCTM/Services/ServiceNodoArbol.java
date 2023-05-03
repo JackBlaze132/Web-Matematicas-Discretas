@@ -32,7 +32,6 @@ public class ServiceNodoArbol {
                 if(actual.getHijoIzquierdo() == null){
                     EntityNodoArbol nodoAGuardar = new EntityNodoArbol(valor, contador);
                     actual.setHijoIzquierdo(nodoAGuardar);
-                    //nodoAGuardar.setIsLeft(Boolean.TRUE);
                     repositoryNodoArbol.save(nodoAGuardar);
                     break;
                 }
@@ -45,7 +44,6 @@ public class ServiceNodoArbol {
                 if(actual.getHijoDerecho() == null){
                     EntityNodoArbol nodoAGuardar = new EntityNodoArbol(valor, contador);
                     actual.setHijoDerecho(nodoAGuardar);
-                    //nodoAGuardar.setIsRight(Boolean.TRUE);
                     repositoryNodoArbol.save(nodoAGuardar);
                     break;
                 }

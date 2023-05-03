@@ -42,10 +42,37 @@ public class ControllerPlayList {
         return new RedirectView("/screw");
     }
 
-    @PostMapping(value = "editarCancion")
+    @PostMapping(value = "/editarCancion")
     public RedirectView editarCancion(@ModelAttribute EntityCancion cancion){
 
         Boolean editado = servicePlayList.editarCancion(cancion);
+
+        if(editado){
+            return new RedirectView("/playList");
+        }
+        return new RedirectView("/screw");
+    }
+
+    @PostMapping(value = "/subirCancion")
+    public RedirectView subirCancion(@RequestParam("id") Long id){
+        EntityCancion cancion = repositoryPlayList.findById(id).get();
+        if (cancion == null) {
+            return new RedirectView("/screw");
+        }
+
+        Boolean editado = servicePlayList.subirCancion(cancion);
+
+        if(editado){
+            return new RedirectView("/playList");
+        }
+        return new RedirectView("/screw");
+    }
+
+    @PostMapping(value = "/bajarCancion")
+    public RedirectView bajarCancion(@RequestParam("id") Long id){
+        EntityCancion cancion = repositoryPlayList.findById(id).get();
+
+        Boolean editado = servicePlayList.bajarCancion(cancion);
 
         if(editado){
             return new RedirectView("/playList");

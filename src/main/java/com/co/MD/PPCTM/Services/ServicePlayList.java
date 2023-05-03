@@ -16,6 +16,8 @@ public class ServicePlayList {
 
     private Boolean validaciones(EntityCancion cancion){
 
+        int numCanciones = listarCanciones().size();
+
         if(cancion == null){
             return false;
         }
@@ -40,7 +42,8 @@ public class ServicePlayList {
             String genero = cancion.getGenero();
             Long minutos = cancion.getNumMinutos();
             Long segundos = cancion.getNumSegundos();
-            repositoryPlayList.save(new EntityCancion(titulo, autor, genero, minutos, segundos));
+            Integer posicion = listarCanciones().size() + 1;
+            repositoryPlayList.save(new EntityCancion(titulo, autor, genero, minutos, segundos, posicion));
         }
         return true;
     }
@@ -58,23 +61,85 @@ public class ServicePlayList {
         return true;
     }
 
-    public Boolean editarCancion(EntityCancion pCancion){
+    public boolean validarFormatoTiempo(String tiempo) {
+        // Verificar que el string tiene el formato esperado
+        if (!tiempo.matches("\\d{1,2}:\\d{2}")) {
+            return false;
+        }
 
-        try{
-            Optional<EntityCancion> buscado = repositoryPlayList.findById(pCancion.getId());
-            EntityCancion cancion = buscado.get();
-            cancion.setTitulo(pCancion.getTitulo());
-            cancion.setAutor(pCancion.getAutor());
-            cancion.setGenero(pCancion.getGenero());
-            cancion.setDuracion(pCancion.getDuracion());
-            repositoryPlayList.save(cancion);
+        // Extraer los valores de minutos y segundos
+        String[] partes = tiempo.split(":");
+        int minutos = Integer.parseInt(partes[0]);
+        int segundos = Integer.parseInt(partes[1]);
+
+        // Verificar que los valores de minutos y segundos están dentro del rango válido
+        if (minutos < 0 || minutos > 59 || segundos < 0 || segundos > 59) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public Boolean subirCancion(EntityCancion cancion){
+
+        Optional<EntityCancion> buscado = repositoryPlayList.findById(cancion.getId());
+        EntityCancion aReemplazar = repositoryPlayList.findByPosicion(cancion.getPosicion()-1);
+
+        if(buscado.isPresent()){
+            buscado.get().setPosicion(cancion.getPosicion()-1);
+            aReemplazar.setPosicion(cancion.getPosicion()+1);
+
+            repositoryPlayList.save(buscado.get());
+            repositoryPlayList.save(aReemplazar);
+
             return true;
         }
-        catch (Exception e){
+        return false;
+
+    }
+
+    public Boolean bajarCancion(EntityCancion cancion){
+
+        Optional<EntityCancion> buscado = repositoryPlayList.findById(cancion.getId());
+        EntityCancion aReemplazar = repositoryPlayList.findByPosicion(cancion.getPosicion()+1);
+
+        if(buscado.isPresent()){
+            buscado.get().setPosicion(cancion.getPosicion()+1);
+            aReemplazar.setPosicion(cancion.getPosicion()-1);
+
+            repositoryPlayList.save(buscado.get());
+            repositoryPlayList.save(aReemplazar);
+
+            return true;
+        }
+        return false;
+
+    }
+
+
+    public Boolean editarCancion(EntityCancion pCancion) {
+        try {
+            Optional<EntityCancion> buscado = repositoryPlayList.findById(pCancion.getId());
+            if (buscado.isPresent()) {
+                EntityCancion cancion = buscado.get();
+                if(!validarFormatoTiempo(pCancion.getDuracion())){
+                    return false;
+                }
+                cancion.setDuracion(pCancion.getDuracion());
+                cancion.setTitulo(pCancion.getTitulo());
+                cancion.setAutor(pCancion.getAutor());
+                cancion.setGenero(pCancion.getGenero());
+                repositoryPlayList.save(cancion);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
+
 
     public List<EntityCancion> listarCanciones(){
         return repositoryPlayList.findAll();

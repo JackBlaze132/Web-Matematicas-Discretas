@@ -83,6 +83,7 @@ public class Frontend {
     @GetMapping(path = "/playList")
     public String playList(Model modelo){
         modelo.addAttribute("listaCanciones", servicePlayList.listarCanciones());
+        modelo.addAttribute("numCanciones", servicePlayList.listarCanciones().size());
         return "playList";
     }
 
@@ -103,6 +104,7 @@ public class Frontend {
     public String mostrarFormularioEdicion(Model modelo) {
         modelo.addAttribute("nCancion", new EntityCancion());
         modelo.addAttribute("canciones", servicePlayList.listarCanciones());
+        modelo.addAttribute("numeroCanciones", servicePlayList.listarCanciones().size());
         return "editarCancion";
     }
 
