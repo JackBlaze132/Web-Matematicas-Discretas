@@ -82,7 +82,7 @@ public class Frontend {
 
     @GetMapping(path = "/playList")
     public String playList(Model modelo){
-        modelo.addAttribute("listaCanciones", servicePlayList.listarCanciones());
+        modelo.addAttribute("listaCanciones", servicePlayList.darCancionesOrdenadas());
         modelo.addAttribute("numCanciones", servicePlayList.listarCanciones().size());
         return "playList";
     }

@@ -54,7 +54,7 @@ body{
 }
 
 #addNode:hover{
-    width: 7.2em;
+    width: 7.4em;
 }
 
 #searchNode:hover{
@@ -63,6 +63,10 @@ body{
 #deleteNode:hover{
      width: 7.3em;
  }
+#goHome:hover{
+    width: 6.3em;
+}
+
 .console-orders{
     font-family: Consolas;
     font-size: 14px;

@@ -3,9 +3,10 @@
 <head>
     <head>
         <meta charset="UTF-8">
-        <title>playList</title>
+        <title>PlayList</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="css/fontawesome.css" rel="stylesheet" type="text/css">
         <link href="css/styles.css" rel="stylesheet" type="text/css">
         <link href="css/playList.css" rel="stylesheet" type="text/css">
         <link href="img/favicon.png" rel="icon" type="image/png">
@@ -19,6 +20,7 @@
         <table class="table table-striped song-table">
             <thead th:class="tableHeader">
                 <tr>
+                    <th scope="col">Posición</th>
                     <th scope="col">Titulo</th>
                     <th scope="col">Autor</th>
                     <th scope="col">Genero</th>
@@ -26,7 +28,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="itemCancion : ${listaCanciones}" >
+                <tr th:each="itemCancion : ${listaCanciones}">
+                    <td th:text="${itemCancion.posicion}"></td>
                     <td th:text="${itemCancion.titulo}"></td>
                     <td th:text="${itemCancion.autor}"></td>
                     <td th:text="${itemCancion.genero}"></td>
@@ -67,19 +70,18 @@
     </div>
     <div style="position: fixed; display: inline-block; top: 68px;">
         <form th:action="@{/crearCancion}" th:method="get">
-            <button id="add" class="m-2 rounded-2  mx-4 btn btn-primary"><i class="bi bi-plus-circle-fill"></i><span class="btn-txt"> Agregar( )</span></button>
+            <button id="add" class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-circle-plus"></i><span class="btn-txt"> Agregar( )</span></button>
         </form>
         <form th:action="@{/editarCancion}" th:method="get">
-            <button id="edit" class="m-2 rounded-2  mx-4 btn btn-primary"><i class="bi bi-pencil-fill"></i><span class="btn-txt"> Editar( )</span></button>
+            <button id="edit" class="m-2 rounded-2  mx-4 btn btn-primary"><i class="fa-solid fa-pencil"></i><span class="btn-txt"> Editar( )</span></button>
         </form>
         <form th:action="@{/eliminarCancion}" th:method="get">
-            <button id="delete" class="m-2 rounded-2  mx-4 btn btn-danger"><i style="margin-left: 2px;" class="fa-solid fa-trash-can"></i><span class="btn-txt"> Eliminar( )</span></button>
+            <button id="delete" class="m-2 rounded-2  mx-4 btn btn-danger"><i style="margin-left: 2px" class="fa-solid fa-trash-can"></i><span class="btn-txt"> Eliminar( )</span></button>
         </form>
+        <button id="goHome" class=" m-2 rounded-2 mx-4 btn btn-dark" onclick="location.href='/'"><i class="fa-solid fa-house icon"></i> Inicio( )</button>
     </div>
     <footer id="common-footer"></footer>
     <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-    <script src="https://kit.fontawesome.com/008b26dd3d.js" crossorigin="anonymous" type="text/javascript"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
     <!-- JQueries-->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>

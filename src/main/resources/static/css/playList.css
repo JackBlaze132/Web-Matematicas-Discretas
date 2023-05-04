@@ -7,6 +7,7 @@ body{
 }
 .song-table{
     background: #fff;
+    text-align: center;
 }
 
 tr{
@@ -19,7 +20,7 @@ tr{
 }
 
 .order{
-    width: 129px;
+    width: 130px;
 }
 
 .order-buttons{
@@ -51,6 +52,10 @@ tr{
 
 #delete:hover{
     width: 7.3em;
+}
+
+#goHome:hover{
+    width: 6.3em;
 }
 
 .form-control{

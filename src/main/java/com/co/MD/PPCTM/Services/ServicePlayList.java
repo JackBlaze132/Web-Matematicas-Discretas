@@ -14,29 +14,28 @@ public class ServicePlayList {
     @Autowired
     RepositoryPlayList repositoryPlayList;
 
-    private Boolean validaciones(EntityCancion cancion){
+    private Boolean validaciones(EntityCancion cancion) {
 
         int numCanciones = listarCanciones().size();
 
-        if(cancion == null){
+        if (cancion == null) {
             return false;
         }
-        if(cancion.getNumSegundos() < 0 || cancion.getNumSegundos() > 59){
+        if (cancion.getNumSegundos() < 0 || cancion.getNumSegundos() > 59) {
             return false;
         }
-        if(cancion.getNumMinutos() < 0 || cancion.getNumMinutos() > 59){
+        if (cancion.getNumMinutos() < 0 || cancion.getNumMinutos() > 59) {
             return false;
         }
         return cancion.getNumSegundos() != 0 || cancion.getNumMinutos() != 0;
     }
 
 
-    public Boolean agregarCancion(EntityCancion cancion){
+    public Boolean agregarCancion(EntityCancion cancion) {
 
-        if(!validaciones(cancion)){
+        if (!validaciones(cancion)) {
             return Boolean.FALSE;
-        }
-        else{
+        } else {
             String titulo = cancion.getTitulo();
             String autor = cancion.getAutor();
             String genero = cancion.getGenero();
@@ -48,13 +47,12 @@ public class ServicePlayList {
         return true;
     }
 
-    public Boolean eliminarCancion(EntityCancion cancion){
+    public Boolean eliminarCancion(EntityCancion cancion) {
 
-        try{
+        try {
             EntityCancion buscada = repositoryPlayList.findByTitulo(cancion.getTitulo());
             repositoryPlayList.deleteById(buscada.getId());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -80,14 +78,14 @@ public class ServicePlayList {
         return true;
     }
 
-    public Boolean subirCancion(EntityCancion cancion){
+    public Boolean subirCancion(EntityCancion cancion) {
 
         Optional<EntityCancion> buscado = repositoryPlayList.findById(cancion.getId());
-        EntityCancion aReemplazar = repositoryPlayList.findByPosicion(cancion.getPosicion()-1);
+        EntityCancion aReemplazar = repositoryPlayList.findByPosicion(cancion.getPosicion() - 1);
 
-        if(buscado.isPresent()){
-            buscado.get().setPosicion(cancion.getPosicion()-1);
-            aReemplazar.setPosicion(cancion.getPosicion()+1);
+        if (buscado.isPresent()) {
+            buscado.get().setPosicion(cancion.getPosicion() - 1);
+            aReemplazar.setPosicion(cancion.getPosicion() + 1);
 
             repositoryPlayList.save(buscado.get());
             repositoryPlayList.save(aReemplazar);
@@ -98,14 +96,14 @@ public class ServicePlayList {
 
     }
 
-    public Boolean bajarCancion(EntityCancion cancion){
+    public Boolean bajarCancion(EntityCancion cancion) {
 
         Optional<EntityCancion> buscado = repositoryPlayList.findById(cancion.getId());
-        EntityCancion aReemplazar = repositoryPlayList.findByPosicion(cancion.getPosicion()+1);
+        EntityCancion aReemplazar = repositoryPlayList.findByPosicion(cancion.getPosicion() + 1);
 
-        if(buscado.isPresent()){
-            buscado.get().setPosicion(cancion.getPosicion()+1);
-            aReemplazar.setPosicion(cancion.getPosicion()-1);
+        if (buscado.isPresent()) {
+            buscado.get().setPosicion(cancion.getPosicion() + 1);
+            aReemplazar.setPosicion(cancion.getPosicion() - 1);
 
             repositoryPlayList.save(buscado.get());
             repositoryPlayList.save(aReemplazar);
@@ -122,7 +120,7 @@ public class ServicePlayList {
             Optional<EntityCancion> buscado = repositoryPlayList.findById(pCancion.getId());
             if (buscado.isPresent()) {
                 EntityCancion cancion = buscado.get();
-                if(!validarFormatoTiempo(pCancion.getDuracion())){
+                if (!validarFormatoTiempo(pCancion.getDuracion())) {
                     return false;
                 }
                 cancion.setDuracion(pCancion.getDuracion());
@@ -141,7 +139,12 @@ public class ServicePlayList {
     }
 
 
-    public List<EntityCancion> listarCanciones(){
+    public List<EntityCancion> listarCanciones() {
         return repositoryPlayList.findAll();
+    }
+
+
+    public List<EntityCancion> darCancionesOrdenadas() {
+        return repositoryPlayList.findByOrderByPosicionAsc();
     }
 }
