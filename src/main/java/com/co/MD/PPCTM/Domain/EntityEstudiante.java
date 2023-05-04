@@ -1,12 +1,14 @@
 package com.co.MD.PPCTM.Domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "estudiante")
-@Data
+@Getter
+@Setter
 public class EntityEstudiante {
 
     @Id

@@ -1,12 +1,13 @@
 package com.co.MD.PPCTM.Domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.Duration;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class EntityCancion {
 
     @Id
@@ -33,13 +34,13 @@ public class EntityCancion {
 
     }
 
-    public EntityCancion(String titulo, String autor, String genero, Long numMinutos, Long numSegundos, Integer posicion) {
+    public EntityCancion(String titulo, String autor, String genero, Long numMinutos, Long numSegundos, String duracion,Integer posicion) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.numMinutos = numMinutos;
         this.numSegundos = numSegundos;
-        this.duracion = "" + numMinutos + ":" + numSegundos;
+        this.duracion = duracion;
         this.posicion = posicion;
     }
 }

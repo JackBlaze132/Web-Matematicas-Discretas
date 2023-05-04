@@ -1,13 +1,15 @@
 package com.co.MD.PPCTM.Domain;
 
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "nodoArbol")
-@Data
+@Getter
+@Setter
 public class EntityNodoArbol {
 
     @Id
@@ -26,11 +28,6 @@ public class EntityNodoArbol {
     @Column(name = "nivelNodo")
     private Long nivelNodo;
 
-   /* @Column(name = "isLeft")
-    private Boolean isLeft;
-
-    @Column(name = "isRight")
-    private Boolean isRight;*/
 
     @Column(name = "isFather")
     private Boolean isFather;

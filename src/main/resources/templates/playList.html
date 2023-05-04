@@ -36,13 +36,21 @@
                     <td th:text="${itemCancion.duracion}"></td>
                     <th:block th:switch="${itemCancion.posicion}">
                         <td th:case="'1'" class="order">
-                            <form class="order-buttons">
-                                <button class="m-2 rounded-2 btn btn-secondary btn-arrow" disabled title="Subir"><i class="bi bi-arrow-bar-up"></i></button>
-                            </form>
-                            <form th:action="@{/playList/bajarCancion}" method="post" class="order-buttons">
-                                <input type="hidden" name="id" th:value="${itemCancion.id}" />
-                                <button class="m-2 rounded-2 btn btn-primary btn-arrow" title="Bajar"><i class="bi bi-arrow-bar-down"></i></button>
-                            </form>
+                            <th:block th:if="${numCanciones == 1}">
+                                <form class="order-buttons">
+                                    <button class="m-2 rounded-2 btn btn-secondary btn-arrow" disabled title="Subir"><i class="bi bi-arrow-bar-up"></i></button>
+                                    <button class="m-2 rounded-2 btn btn-secondary btn-arrow" disabled title="Bajar"><i class="bi bi-arrow-bar-down"></i></button>
+                                </form>
+                            </th:block>
+                            <th:block th:if="${numCanciones > 1}">
+                                <form class="order-buttons">
+                                    <button class="m-2 rounded-2 btn btn-secondary btn-arrow" disabled title="Subir"><i class="bi bi-arrow-bar-up"></i></button>
+                                </form>
+                                <form th:action="@{/playList/bajarCancion}" method="post" class="order-buttons">
+                                    <input type="hidden" name="id" th:value="${itemCancion.id}" />
+                                    <button class="m-2 rounded-2 btn btn-primary btn-arrow" title="Bajar"><i class="bi bi-arrow-bar-down"></i></button>
+                                </form>
+                            </th:block>
                         </td>
                         <td th:case="${numCanciones}" class="order">
                             <form th:action="@{/playList/subirCancion}" method="post" class="order-buttons">

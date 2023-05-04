@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface RepositoryPlayList extends JpaRepository<EntityCancion, Long> {
 
-    EntityCancion findByTitulo(String titulo);
     EntityCancion findByPosicion(Integer posicion);
 
     List<EntityCancion> findByOrderByPosicionAsc();
