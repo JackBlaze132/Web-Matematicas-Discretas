@@ -32,34 +32,34 @@
                     <td th:text="${itemCancion.genero}"></td>
                     <td th:text="${itemCancion.duracion}"></td>
                     <th:block th:switch="${itemCancion.posicion}">
-                        <div th:case="'1'">
-                            <form>
-                                <button class="m-2 rounded-2  mx-4 btn btn-primary" disabled><i class="bi bi-arrow-bar-up"></i><span class="btn-txt"> Subir</span></button>
+                        <td th:case="'1'" class="order">
+                            <form class="order-buttons">
+                                <button class="m-2 rounded-2 btn btn-secondary btn-arrow" disabled title="Subir"><i class="bi bi-arrow-bar-up"></i></button>
                             </form>
-                            <form th:action="@{/playList/bajarCancion}" method="post">
+                            <form th:action="@{/playList/bajarCancion}" method="post" class="order-buttons">
                                 <input type="hidden" name="id" th:value="${itemCancion.id}" />
-                                <button class="m-2 rounded-2 mx-4 btn btn-primary"><i class="bi bi-arrow-bar-down"></i><span class="btn-txt"> Bajar</span></button>
+                                <button class="m-2 rounded-2 btn btn-primary btn-arrow" title="Bajar"><i class="bi bi-arrow-bar-down"></i></button>
                             </form>
-                        </div>
-                        <div th:case="${numCanciones}">
-                            <form th:action="@{/playList/subirCancion}" method="post">
+                        </td>
+                        <td th:case="${numCanciones}" class="order">
+                            <form th:action="@{/playList/subirCancion}" method="post" class="order-buttons">
                                 <input type="hidden" name="id" th:value="${itemCancion.id}" />
-                                <button class="m-2 rounded-2 mx-4 btn btn-primary"><i class="bi bi-arrow-bar-up"></i><span class="btn-txt"> Bajar</span></button>
+                                <button class="m-2 rounded-2 btn btn-primary btn-arrow" title="Subir"><i class="bi bi-arrow-bar-up"></i></button>
                             </form>
-                            <form>
-                                <button class="m-2 rounded-2  mx-4 btn btn-primary" disabled><i class="bi bi-arrow-bar-down"></i><span class="btn-txt"> Bajar</span></button>
+                            <form class="order-buttons">
+                                <button class="m-2 rounded-2 btn btn-secondary btn-arrow" disabled title="Bajar"><i class="bi bi-arrow-bar-down"></i></button>
                             </form>
-                        </div>
-                        <div th:case="*" th:default>
-                            <form th:action="@{/playList/subirCancion}" method="post">
+                        </td>
+                        <td th:case="*" th:default class="order">
+                            <form th:action="@{/playList/subirCancion}" method="post" class="order-buttons">
                                 <input type="hidden" name="id" th:value="${itemCancion.id}" />
-                                <button class="m-2 rounded-2 mx-4 btn btn-primary"><i class="bi bi-arrow-bar-up"></i><span class="btn-txt"> Bajar</span></button>
+                                <button class="m-2 rounded-2 btn btn-primary btn-arrow" title="Subir"><i class="bi bi-arrow-bar-up"></i></button>
                             </form>
-                            <form th:action="@{/playList/bajarCancion}" method="post">
+                            <form th:action="@{/playList/bajarCancion}" method="post" class="order-buttons">
                                 <input type="hidden" name="id" th:value="${itemCancion.id}" />
-                                <button class="m-2 rounded-2 mx-4 btn btn-primary"><i class="bi bi-arrow-bar-down"></i><span class="btn-txt"> Bajar</span></button>
+                                <button class="m-2 rounded-2 btn btn-primary btn-arrow" title="Bajar"><i class="bi bi-arrow-bar-down"></i></button>
                             </form>
-                        </div>
+                        </td>
                     </th:block>
                 </tr>
             </tbody>

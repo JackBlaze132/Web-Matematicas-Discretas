@@ -8,10 +8,24 @@ body{
 .song-table{
     background: #fff;
 }
+
+tr{
+    vertical-align: middle;
+}
+
 .tableHeader {
     background-color: var(--bs-indigo);
     color: #FFF;
 }
+
+.order{
+    width: 129px;
+}
+
+.order-buttons{
+    display: contents;
+}
+
 
 .btn {
     text-align: left;
@@ -19,6 +33,12 @@ body{
     height: 2.3em;
     overflow: hidden;
     transition: 100ms;
+}
+
+.btn-arrow{
+    width: inherit;
+    height: inherit;
+    font-size: 12px;
 }
 
 #add:hover{
@@ -46,3 +66,7 @@ body{
 .save-btn{
     width: inherit;
 }
+
+
+
+
